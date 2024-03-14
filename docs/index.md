@@ -4,7 +4,7 @@ Welcome to the VideoAlchemy Guide. This document provides an overview of video p
 
 ## Table of Contents
 
-- [Essential FFmpeg Commands](#ffmpeg-useful-commands)
+1. [Essential FFmpeg Commands](#ffmpeg-useful-commands)
    1. [Basic video conversion](ffmpeg-commands/basic-video-conversion.md)
    2. [Extracting audio from video](ffmpeg-commands/extracting-audio-from-video.md)
    3. [Converting audio files](ffmpeg-commands/converting-audio-files.md)
