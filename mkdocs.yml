@@ -1,0 +1,46 @@
+site_name: Video Alchemy
+nav: 
+  - Home: index.md
+  - 'FFMPEG Commands': 
+    - 'Basic video conversion': ffmpeg-commands/basic-video-conversion.md
+    - 'Extracting audio from video': ffmpeg-commands/extracting-audio-from-video.md
+    - 'Converting audio files': ffmpeg-commands/converting-audio-files.md
+    - 'Resizing videos': ffmpeg-commands/resizing-videos.md
+    - 'Cropping videos': ffmpeg-commands/cropping-videos.md
+    - 'Trimming videos': ffmpeg-commands/trimming-videos.md
+    - 'Combining videos': ffmpeg-commands/combining-videos.md
+    - 'Adding audio to a video': ffmpeg-commands/adding-audio-to-a-video.md
+    - 'Converting a video to GIF': ffmpeg-commands/converting-a-video-to-gif.md
+    - 'Extracting images from video': ffmpeg-commands/extracting-images-from-video.md
+    - 'Creating a video from images': ffmpeg-commands/creating-a-video-from-images.md
+    - 'Adding subtitles to a video': ffmpeg-commands/adding-subtitles-to-a-video.md
+    - 'Adding a watermark to a video': ffmpeg-commands/adding-a-watermark-to-a-video.md
+    - 'Changing video bit rate': ffmpeg-commands/changing-video-bit-rate.md
+    - 'Changing audio bit rate': ffmpeg-commands/changing-audio-bit-rate.md
+    - 'Extracting a section without re-encoding': ffmpeg-commands/extracting-a-section-without-re-encoding.md
+    - 'Fast conversion to MP4 format': ffmpeg-commands/fast-conversion-to-mp4-format.md
+    - 'Converting to a different audio codec': ffmpeg-commands/converting-to-a-different-audio-codec.md
+    - 'Merging video and audio': ffmpeg-commands/merging-video-and-audio.md
+    - 'Normalizing audio in a video': ffmpeg-commands/normalizing-audio-in-a-video.md
+    - 'Rotating a video': ffmpeg-commands/rotating-a-video.md
+    - 'Speeding up a video': ffmpeg-commands/speeding-up-a-video.md
+    - 'Slowing down a video': ffmpeg-commands/slowing-down-a-video.md
+    - 'Converting video for web': ffmpeg-commands/converting-video-for-web.md
+    - 'Removing audio from a video': ffmpeg-commands/removing-audio-from-a-video.md
+    - 'Extracting a single image from a video': ffmpeg-commands/extracting-a-single-image-from-a-video.md
+    - 'Looping a video': ffmpeg-commands/looping-a-video.md
+    - 'Capturing webcam to a video file': ffmpeg-commands/capturing-webcam-to-a-video-file.md
+    - 'Streaming video to YouTube': ffmpeg-commands/streaming-video-to-youtube.md
+    - 'Convert video to HLS format': ffmpeg-commands/convert-video-to-hls-format.md
+    - 'Convert video for Instagram': ffmpeg-commands/convert-video-for-instagram.md
+    - 'Batch convert .avi files to .mp4': ffmpeg-commands/batch-convert-avi-files-to-mp4.md
+    - 'Extract all frames from a video': ffmpeg-commands/extract-all-frames-from-a-video.md
+    - 'Increase the volume of a video': ffmpeg-commands/increase-the-volume-of-a-video.md
+    - 'Convert a video to grayscale': ffmpeg-commands/convert-a-video-to-grayscale.md
+    - 'Creating a thumbnail from a video': ffmpeg-commands/creating-a-thumbnail-from-a-video.md
+    - 'Stabilize a shaky video': ffmpeg-commands/stabilize-a-shaky-video.md
+    - 'Adding a simple text overlay to a video': ffmpeg-commands/adding-a-simple-text-overlay-to-a-video.md
+    - 'Convert video to 4K': ffmpeg-commands/convert-video-to-4k.md
+    - 'Reverse a video': ffmpeg-commands/reverse-a-video.md
+    - 'Convert a video to vertical': ffmpeg-commands/convert-a-video-to-vertical.md
+    - 'Convert a series of images to a timelapse video': ffmpeg-commands/convert-a-series-of-images-to-a-timelapse-video.md
