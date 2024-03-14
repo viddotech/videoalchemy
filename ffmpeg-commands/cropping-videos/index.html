@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Cropping Videos - Video Alchemy</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Video Alchemy</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#cropping-videos" class="nav-link">Cropping Videos</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#command" class="nav-link">Command</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#parameters" class="nav-link">Parameters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#possible-errors" class="nav-link">Possible Errors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#gpu-acceleration-command" class="nav-link">GPU Acceleration Command</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#additional-information" class="nav-link">Additional Information</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="cropping-videos">Cropping Videos</h1>
+<p>Crop video files to remove unwanted portions from the frame using FFmpeg.</p>
+<h2 id="command">Command</h2>
+<pre><code class="language-bash">ffmpeg -i input.mp4 -vf &quot;crop=640:480:100:50&quot; output.mp4
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><strong><code>-i input.mp4</code></strong>: Specifies the input video file. Replace <code>input.mp4</code> with the path to your source video file.</li>
+<li><strong><code>-vf "crop=640:480:100:50"</code></strong>: Applies a video filter to crop the video. The <code>crop</code> filter syntax is <code>crop=width:height:x:y</code>, where <code>width</code> and <code>height</code> are the dimensions of the output video, and <code>x</code> and <code>y</code> are the top left coordinates of the crop area in the input video. Adjust these values to your desired cropping area.</li>
+<li><strong><code>output.mp4</code></strong>: Specifies the output video file. Replace <code>output.mp4</code> with your desired output file name.</li>
+</ul>
+<h2 id="possible-errors">Possible Errors</h2>
+<ul>
+<li><strong>File not found</strong>: Occurs if FFmpeg cannot locate the input file. Ensure the path to the file is correct.</li>
+<li><strong>Invalid crop dimensions</strong>: Occurs if the specified dimensions are not valid or if the crop area exceeds the boundaries of the input video. Ensure that the dimensions and coordinates are correct and within the range of the input video's size.</li>
+<li><strong>Permission denied</strong>: Occurs if FFmpeg does not have the necessary permissions to read the input file or write to the output file. Ensure that the files and directories have the correct permissions.</li>
+</ul>
+<h2 id="gpu-acceleration-command">GPU Acceleration Command</h2>
+<p>Cropping with GPU acceleration can be performed using filters supported by your GPU. However, direct GPU-accelerated cropping commands vary based on the FFmpeg version and GPU. As a general approach for Nvidia GPUs, you can use:</p>
+<pre><code class="language-bash">ffmpeg -hwaccel cuda -i input.mp4 -vf &quot;crop=640:480:100:50&quot; -c:a copy output.mp4
+</code></pre>
+<p>Note: Ensure your FFmpeg build has been compiled with support for Nvidia CUDA or the relevant GPU acceleration hardware you're using. Direct GPU cropping might not be supported for all hardware, and using <code>-vf</code> with a hardware-accelerated encoder might be the most effective solution.</p>
+<h2 id="additional-information">Additional Information</h2>
+<ul>
+<li><strong>Aspect Ratio</strong>: Be mindful of the aspect ratio when cropping videos. An improper aspect ratio can lead to stretched or squished playback.</li>
+<li><strong>Quality</strong>: Cropping a video re-encodes it, which can affect quality. To maintain quality, use a high-quality codec and consider adjusting bitrate or quality settings (e.g., using <code>-crf</code> for x264 and x265 encoders).</li>
+<li><strong>Audio</strong>: The command above copies the audio stream without changes. If needed, audio can be re-encoded or manipulated separately.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

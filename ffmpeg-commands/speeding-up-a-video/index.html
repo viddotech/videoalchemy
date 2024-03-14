@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Speeding Up a Video - Video Alchemy</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Video Alchemy</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#speeding-up-a-video" class="nav-link">Speeding Up a Video</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#command" class="nav-link">Command</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#parameters" class="nav-link">Parameters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#possible-errors" class="nav-link">Possible Errors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#gpu-acceleration-command" class="nav-link">GPU Acceleration Command</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#additional-information" class="nav-link">Additional Information</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="speeding-up-a-video">Speeding Up a Video</h1>
+<p>Increase the playback speed of a video file using FFmpeg, useful for creating time-lapse effects or summarizing content.</p>
+<h2 id="command">Command</h2>
+<pre><code class="language-bash">ffmpeg -i input.mp4 -filter:v &quot;setpts=0.5*PTS&quot; -an output.mp4
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><strong><code>-i input.mp4</code></strong>: Specifies the input video file. Replace <code>input.mp4</code> with the path to your source video file.</li>
+<li><strong><code>-filter:v "setpts=0.5*PTS"</code></strong>: Applies a video filter to adjust the presentation timestamps (PTS) of the video frames, effectively doubling the speed of the video. The factor <code>0.5</code> decreases the interval between frames to half, speeding up the video. Adjust this value to control the speed (e.g., <code>0.25</code> for 4x speed).</li>
+<li><strong><code>-an</code></strong>: Removes the audio track from the output video. This is often necessary because changing video speed without adjusting audio can lead to desynchronization.</li>
+</ul>
+<h2 id="possible-errors">Possible Errors</h2>
+<ul>
+<li><strong>File not found</strong>: Occurs if FFmpeg cannot locate the input file. Ensure the path to the file is correct.</li>
+<li><strong>Invalid filter expression</strong>: Happens if the expression passed to the <code>setpts</code> filter is incorrect. Ensure the syntax for the filter expression is correct.</li>
+<li><strong>Permission denied</strong>: Arises if FFmpeg does not have the necessary permissions to read the input file or write to the output file. Check that the files and directories have the correct permissions.</li>
+</ul>
+<h2 id="gpu-acceleration-command">GPU Acceleration Command</h2>
+<p>Speed adjustments are typically handled by altering the frame presentation times, a process that is not directly accelerated by GPUs. However, if re-encoding is required, GPU acceleration can be utilized for the encoding step. For Nvidia GPUs:</p>
+<pre><code class="language-bash">ffmpeg -i input.mp4 -filter:v &quot;setpts=0.5*PTS&quot; -c:v h264_nvenc -an output.mp4
+</code></pre>
+<h2 id="additional-information">Additional Information</h2>
+<ul>
+<li><strong>Maintaining Audio</strong>: If you wish to keep the audio and adjust its speed to match the video, you can use the <code>atempo</code> audio filter. Note that <code>atempo</code> has a limited range (0.5 to 2.0), and multiple filters may be chained for greater speed changes (e.g., <code>-filter:a "atempo=2.0,atempo=2.0"</code> for 4x speed).</li>
+<li><strong>Quality Preservation</strong>: Speeding up video may require re-encoding, which can affect quality. Consider specifying quality-related encoding options (e.g., <code>-crf</code> for x264 and x265) to balance speed and quality.</li>
+<li><strong>Frame Rate Consideration</strong>: Increasing the speed reduces the effective frame rate. For significant speed increases, consider adjusting the frame rate with the <code>-r</code> option to maintain smooth playback.</li>
+<li><strong>Complex Filter Graphs</strong>: For advanced speed adjustments, especially when maintaining audio, consider using a complex filter graph with the <code>-filter_complex</code> option to manipulate both video and audio in a single command.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
