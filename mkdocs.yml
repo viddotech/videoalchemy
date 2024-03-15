@@ -1,3 +1,11 @@
 site_name: Video Alchemy
 nav: 
   - Home: index.md
+repo_url: https://github.com/viddotech/videoalchemy
+repo_name: GitHub
+edit_uri: https://github.com/viddotech/videoalchemy/edit/main/docs/
+theme:
+  name: mkdocs
+  highlightjs: true
+  hljs_languages:
+    - bash

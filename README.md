@@ -6,7 +6,6 @@ Welcome to VideoAlchemy, the comprehensive toolkit designed for both novices and
 
 - [Introduction](#introduction)
 - [Essential FFmpeg Commands](#essential-ffmpeg-commands)
-- [Getting Started with FFmpeg](#getting-started-with-ffmpeg)
 - [Contributing to VideoAlchemy](#contributing-to-videoalchemy)
 - [License](#license)
 - [Support Us](#support-us)
