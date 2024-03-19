@@ -2,10 +2,33 @@ site_name: Video Alchemy
 nav: 
   - Home: index.md
 repo_url: https://github.com/viddotech/videoalchemy
-repo_name: GitHub
+repo_name: viddotech/videoalchemy
 edit_uri: https://github.com/viddotech/videoalchemy/edit/main/docs/
 theme:
-  name: mkdocs
+  icon:
+    repo: fontawesome/brands/github-alt
+  name: material
+  logo: assets/no-text.png
+  palette: 
+    - primary: blue grey
+    # Palette toggle for light mode
+    - scheme: blue grey
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode  
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   highlightjs: true
   hljs_languages:
     - bash
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: timeago
+      fallback_to_build_date: true
+extra_javascript:
+  - assets/js/github-data.js
