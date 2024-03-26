@@ -293,38 +293,134 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#command" class="md-nav__link">
+  <a href="#ffmpeg-command" class="md-nav__link">
     <span class="md-ellipsis">
-      Command
+      FFmpeg Command
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FFmpeg Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-ffmpeg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters for FFmpeg
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#possible-errors-for-ffmpeg" class="md-nav__link">
     <span class="md-ellipsis">
-      Parameters
+      Possible Errors for FFmpeg
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#possible-errors" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#gpu-acceleration-command-for-ffmpeg" class="md-nav__link">
     <span class="md-ellipsis">
-      Possible Errors
+      GPU Acceleration Command for FFmpeg
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#gpu-acceleration-command" class="md-nav__link">
+  <a href="#gstreamer-command" class="md-nav__link">
     <span class="md-ellipsis">
-      GPU Acceleration Command
+      GStreamer Command
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="GStreamer Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-gstreamer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters for GStreamer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#possible-errors-for-gstreamer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Possible Errors for GStreamer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opencv-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenCV Command
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenCV Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#possible-errors-for-opencv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Possible Errors for OpenCV
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libvlc-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      libVLC Command
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="libVLC Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-libvlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters for libVLC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#possible-errors-for-libvlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Possible Errors for libVLC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -334,6 +430,48 @@
       Additional Information
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Additional Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ffmpeg" class="md-nav__link">
+    <span class="md-ellipsis">
+      FFmpeg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gstreamer" class="md-nav__link">
+    <span class="md-ellipsis">
+      GStreamer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opencv" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenCV
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libvlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      libVLC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -356,31 +494,119 @@
 
 
 <h1 id="basic-video-conversion">Basic Video Conversion</h1>
-<p>Convert video files from one format to another using FFmpeg.</p>
-<h2 id="command">Command</h2>
+<p>Convert video files from one format to another using various tools.</p>
+<h2 id="ffmpeg-command">FFmpeg Command</h2>
 <pre><code class="language-bash">ffmpeg -i input.mp4 output.avi
 </code></pre>
-<h2 id="parameters">Parameters</h2>
+<h3 id="parameters-for-ffmpeg">Parameters for FFmpeg</h3>
 <ul>
 <li><strong><code>-i input.mp4</code></strong>: Specifies the input file. Replace <code>input.mp4</code> with the path to your source video file.</li>
 <li><strong><code>output.avi</code></strong>: Specifies the output file. The extension of the output file determines the output format. Replace <code>output.avi</code> with your desired output file name and format.</li>
 </ul>
-<h2 id="possible-errors">Possible Errors</h2>
+<h3 id="possible-errors-for-ffmpeg">Possible Errors for FFmpeg</h3>
 <ul>
 <li><strong>File not found</strong>: Occurs if FFmpeg cannot locate the input file. Ensure the path to the file is correct.</li>
 <li><strong>Unsupported codec</strong>: Occurs if the output format requires a codec not supported or not installed. Ensure that the desired output format is supported.</li>
 <li><strong>Permission denied</strong>: Occurs if FFmpeg does not have the necessary permissions to read the input file or write to the output file. Ensure that the files and directories have the correct permissions.</li>
 </ul>
-<h2 id="gpu-acceleration-command">GPU Acceleration Command</h2>
+<h3 id="gpu-acceleration-command-for-ffmpeg">GPU Acceleration Command for FFmpeg</h3>
 <p>For Nvidia GPUs, use:</p>
 <pre><code class="language-bash">ffmpeg -hwaccel cuda -i input.mp4 -c:v h264_nvenc output.avi
 </code></pre>
+<h2 id="gstreamer-command">GStreamer Command</h2>
+<pre><code class="language-bash">gst-launch-1.0 filesrc location=input.mp4 ! decodebin ! videoconvert ! x264enc ! avimux ! filesink location=output.avi
+</code></pre>
+<h3 id="parameters-for-gstreamer">Parameters for GStreamer</h3>
+<ul>
+<li><strong><code>filesrc location=input.mp4</code></strong>: Specifies the source file.</li>
+<li><strong><code>videoconvert</code></strong>: Converts video formats for compatibility.</li>
+<li><strong><code>x264enc</code></strong>: Uses the x264 encoder for H.264 video encoding.</li>
+<li><strong><code>avimux</code></strong>: Muxes streams into an AVI container.</li>
+<li><strong><code>filesink location=output.avi</code></strong>: Specifies the destination file.</li>
+</ul>
+<h3 id="possible-errors-for-gstreamer">Possible Errors for GStreamer</h3>
+<ul>
+<li><strong>Pipeline configuration error</strong>: Occurs if there's an issue with how the pipeline is set up or if a necessary plugin is missing.</li>
+<li><strong>Unsupported codec or format</strong>: Similar to FFmpeg, if the pipeline uses codecs or formats not supported by GStreamer or not installed on the system.</li>
+<li><strong>File read/write error</strong>: If GStreamer cannot access the source or destination files due to permissions or if the destination path is incorrect.</li>
+</ul>
+<h2 id="opencv-command">OpenCV Command</h2>
+<p>Using OpenCV for video conversion requires writing a small script. Here's an example in Python:</p>
+<pre><code class="language-python">import cv2
+
+# Load the input video
+cap = cv2.VideoCapture('input.mp4')
+
+# Define the codec and create VideoWriter object
+fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
+
+while(cap.isOpened()):
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    # Write the frame into the file 'output.avi'
+    out.write(frame)
+
+# Release everything if job is finished
+cap.release()
+out.release()
+</code></pre>
+<h3 id="possible-errors-for-opencv">Possible Errors for OpenCV</h3>
+<ul>
+<li><strong>Codec not supported</strong>: If the specified codec is not available on the system, OpenCV will fail to write the video file.</li>
+<li><strong>Incorrect file path</strong>: If the path to the input file or the destination for the output file is incorrect, OpenCV will not be able to open or save the file.</li>
+<li><strong>Frame capture error</strong>: During video processing, if OpenCV cannot read frames from the video, it might stop the conversion process prematurely.</li>
+</ul>
+<h2 id="libvlc-command">libVLC Command</h2>
+<p>Converting video files with libVLC also typically involves scripting. Below is an example command using the VLC command line:</p>
+<pre><code class="language-bash">vlc -I dummy input.mp4 vlc://quit --sout &quot;#transcode{vcodec=h264,vb=800,acodec=mp3,ab=128}:standard{access=file,mux=avi,dst='output.avi'}&quot;
+</code></pre>
+<h3 id="parameters-for-libvlc">Parameters for libVLC</h3>
+<ul>
+<li><strong><code>-I dummy</code></strong>: Runs VLC without an interface.</li>
+<li><strong><code>input.mp4</code></strong>: Specifies the input file.</li>
+<li><strong><code>--sout</code></strong>: Defines the stream output chain.</li>
+<li><strong><code>vcodec=h264,vb=800</code></strong>: Sets the video codec to H.264 with a bitrate of 800 kb/s.</li>
+<li><strong><code>acodec=mp3,ab=128</code></strong>: Sets the audio codec to MP3 with a bitrate of 128 kb/s.</li>
+<li><strong><code>mux=avi</code></strong>: Uses AVI as the muxing format.</li>
+<li><strong><code>dst='output.avi'</code></strong>: Specifies the destination file.</li>
+</ul>
+<h3 id="possible-errors-for-libvlc">Possible Errors for libVLC</h3>
+<ul>
+<li><strong>Unsupported codec or format</strong>: If VLC does not support the specified codec or format for the input or output files.</li>
+<li><strong>Streaming error</strong>: When using VLC for streaming or converting streaming media, network issues or incorrect stream URLs can cause errors.</li>
+<li><strong>Permission issues</strong>: Similar to other tools, if VLC lacks permissions to access the input file or write to the output location, it can result in errors.</li>
+</ul>
 <h2 id="additional-information">Additional Information</h2>
+<h3 id="ffmpeg">FFmpeg</h3>
 <ul>
 <li><strong>Codecs and Formats</strong>: The output format is determined by the file extension of the output file (e.g., <code>.mp4</code>, <code>.avi</code>, <code>.mkv</code>). The codec used for encoding can be specified with the <code>-c:v</code> parameter (e.g., <code>-c:v libx264</code> for H.264).</li>
 <li><strong>Quality and Compression</strong>: You can control the quality and compression of the output video by adjusting the bitrate (using <code>-b:v</code>) or the constant rate factor (using <code>-crf</code> for codecs like H.264).</li>
 <li><strong>Audio</strong>: By default, FFmpeg will also transcode the audio stream. You can specify the audio codec with <code>-c:a</code> (e.g., <code>-c:a aac</code> for AAC audio) and adjust the audio bitrate with <code>-b:a</code>.</li>
 <li><strong>Compatibility</strong>: Ensure that the chosen codecs and formats are compatible with your intended playback devices or platforms.</li>
+</ul>
+<h3 id="gstreamer">GStreamer</h3>
+<ul>
+<li><strong>Codecs and Formats</strong>: Uses a pipeline-based approach for handling various codecs and formats. The encoding process is determined by the elements in the pipeline (e.g., x264enc for H.264 encoding).</li>
+<li><strong>Quality and Compression</strong>: Allows for dynamic adjustment of quality and compression settings within the pipeline. Parameters like bitrate can be specified for certain encoders.</li>
+<li><strong>Audio</strong>: Supports audio processing and encoding through its pipeline. Audio codecs and parameters can be specified similar to video settings.</li>
+<li><strong>Compatibility</strong>: Modular architecture enables support for a wide range of codecs and formats, ensuring compatibility across different platforms and devices.</li>
+</ul>
+<h3 id="opencv">OpenCV</h3>
+<ul>
+<li><strong>Codecs and Formats</strong>: Limited by system codecs but supports common formats for reading and writing videos. The codec is specified in the VideoWriter constructor (e.g., <code>cv2.VideoWriter_fourcc(*'DIVX')</code> for AVI).</li>
+<li><strong>Quality and Compression</strong>: Offers control over the video's resolution and frame rate, which can indirectly affect quality and size.</li>
+<li><strong>Audio</strong>: Does not natively support audio processing; OpenCV focuses primarily on video and image processing.</li>
+<li><strong>Compatibility</strong>: Works well for a wide range of video processing tasks, but compatibility with codecs and formats is dependent on the underlying system.</li>
+</ul>
+<h3 id="libvlc">libVLC</h3>
+<ul>
+<li><strong>Codecs and Formats</strong>: Supports a broad range of codecs and formats for both input and output, leveraging VLC's extensive format support.</li>
+<li><strong>Quality and Compression</strong>: Quality and compression settings can be adjusted through transcode module options, like specifying video bitrate and scale.</li>
+<li><strong>Audio</strong>: Offers comprehensive audio processing capabilities, including codec selection and bitrate adjustments, similar to its video processing features.</li>
+<li><strong>Compatibility</strong>: Highly compatible with numerous devices and platforms, benefiting from VLC's universal media playback capabilities.</li>
 </ul>
 
 
@@ -402,7 +628,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-03-14T12:11:08+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-03-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-03-26T09:01:16+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-03-26</span>
   </span>
 
     
