@@ -1,0 +1,24 @@
+version: 0.1
+
+tasks:
+  - name: Cut Video
+    inputs:
+      - id: cut-id
+        source: 'cut-source.mp4'
+    outputs:
+      - id: output-cut-id
+        source: 'output-cut.mp4'
+  - name: create cover video
+    inputs:
+      - id: one
+        source: "sample.mp4"
+      - id: two
+        output_id: output-cut-id
+    codecs:
+      - codec_name:
+          video: copy
+        move_flags:
+          - faststart
+        pass: 1
+    run_after:
+      - Cut Video
