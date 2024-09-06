@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"github.com/viddotech/videoalchemy/internal/domain/task/services"
+	"github.com/viddotech/videoalchemy/internal/infrastructure/compose"
+	"github.com/viddotech/videoalchemy/internal/infrastructure/pretty"
 )
 
 func RootCommand(taskService services.TaskService) *cobra.Command {
@@ -24,11 +26,25 @@ func ComposeCommand(taskService services.TaskService) *cobra.Command {
 		Use:   "compose",
 		Short: "Manage Media Tasks",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			_, err := taskService.CreateTasks(composeFilePath)
+
+			composeFileData, err := compose.LoadComposeDataFromFile(composeFilePath)
+			if err != nil {
+				return nil
+			}
+
+			err = taskService.CreateTasks(composeFileData.Instructions, composeFileData.GeneratePath)
 			if err != nil {
 				return err
 			}
-			//fmt.Printf("Task created: %+v %+v \n", task.Instruction.Name, composeFilePath)
+
+			done := taskService.RunTasks(composeFileData.GeneratePath)
+
+			if done {
+				pretty.NotifySuccessText("Hooray! All tasks are done 🎉")
+			} else {
+				pretty.NotifyDangerousText("Oh no! Some tasks have failed 😢")
+			}
+
 			return nil
 		},
 	}

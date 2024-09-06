@@ -132,3 +132,7 @@ dist
 # output mkdocs
 site
 .idea
+
+sample/generated
+sample/outputs
+videoalchemy
