@@ -1,77 +1,96 @@
-# VideoAlchemy: A Toolkit to Video Processing Excellence
 
-Welcome to VideoAlchemy, the comprehensive toolkit designed for both novices and experts in the realm of video processing. Initially focusing on documenting invaluable FFmpeg commands, VideoAlchemy aims to evolve into a full-fledged suite offering bespoke commands for streamlined video processing tasks. Our roadmap includes launching an informative blog, followed by the introduction of a SaaS platform dedicated to video-on-demand infrastructure, live streaming, restreaming, and more.
+# VideoAlchemy: Simplified, Structured Video Processing
 
-## Contents
+Welcome to **VideoAlchemy**, an advanced toolkit that offers a more readable and structured way to handle video processing tasks compared to traditional FFmpeg commands. VideoAlchemy enables users to define video processing workflows using a simple YAML-based configuration, enriched with built-in validation to minimize errors and streamline command execution.
+
+Whether you're processing a single video or executing a sequence of commands, VideoAlchemy ensures a smoother and more intuitive experience.
+
+## Table of Contents
 
 - [Introduction](#introduction)
-- [Essential FFmpeg Commands](#essential-ffmpeg-commands)
-- [Contributing to VideoAlchemy](#contributing-to-videoalchemy)
+- [Why VideoAlchemy?](#why-videoalchemy)
+- [VideoAlchemy Command](#videoalchemy-command)
+- [Contributing](#contributing)
 - [License](#license)
 - [Support Us](#support-us)
+- [Viddo Compose Tutorial](#viddo-compose-tutorial)
 
 ## Introduction
 
-VideoAlchemy is your go-to source for mastering video processing techniques. From basic conversions to complex editing, our documentation covers a wide array of FFmpeg commands tailored to enhance your video projects efficiently.
+**VideoAlchemy** provides a user-friendly alternative to directly writing complex FFmpeg commands. With a focus on clarity, ease of use, and sequence management, VideoAlchemy allows you to write video processing tasks using readable YAML files. These files come with built-in validation to help avoid common mistakes, making it ideal for both beginners and seasoned professionals.
 
-## Essential FFmpeg Commands
+## Why VideoAlchemy?
 
-   1. [Basic video conversion](docs/ffmpeg-commands/basic-video-conversion.md)
-   2. [Extracting audio from video](docs/ffmpeg-commands/extracting-audio-from-video.md)
-   3. [Converting audio files](docs/ffmpeg-commands/converting-audio-files.md)
-   4. [Resizing videos](docs/ffmpeg-commands/resizing-videos.md)
-   5. [Cropping videos](docs/ffmpeg-commands/cropping-videos.md)
-   6. [Trimming videos](docs/ffmpeg-commands/trimming-videos.md)
-   7. [Combining videos](docs/ffmpeg-commands/combining-videos.md)
-   8. [Adding audio to a video](docs/ffmpeg-commands/adding-audio-to-a-video.md)
-   9. [Converting a video to GIF](docs/ffmpeg-commands/converting-a-video-to-gif.md)
-   10. [Extracting images from video](docs/ffmpeg-commands/extracting-images-from-video.md)
-   11. [Creating a video from images](docs/ffmpeg-commands/creating-a-video-from-images.md)
-   12. [Adding subtitles to a video](docs/ffmpeg-commands/adding-subtitles-to-a-video.md)
-   13. [Adding a watermark to a video](docs/ffmpeg-commands/adding-a-watermark-to-a-video.md)
-   14. [Changing video bit rate](docs/ffmpeg-commands/changing-video-bit-rate.md)
-   15. [Changing audio bit rate](docs/ffmpeg-commands/changing-audio-bit-rate.md)
-   16. [Normalizing audio in a video](docs/ffmpeg-commands/normalizing-audio-in-a-video.md)
-   17. [Rotating a video](docs/ffmpeg-commands/rotating-a-video.md)
-   18. [Speeding up a video](docs/ffmpeg-commands/speeding-up-a-video.md)
-   19. [Slowing down a video](docs/ffmpeg-commands/slowing-down-a-video.md)
-   20. [Converting video for web](docs/ffmpeg-commands/converting-video-for-web.md)
-   21. [Looping a video](docs/ffmpeg-commands/looping-a-video.md)
-   22. [Capturing webcam to a video file](docs/ffmpeg-commands/capturing-webcam-to-a-video-file.md)
-   23. [Streaming video to YouTube](docs/ffmpeg-commands/streaming-video-to-youtube.md)
-   24. [Convert video to HLS format](docs/ffmpeg-commands/convert-video-to-hls-format.md)
-   25. [Convert video for Instagram](docs/ffmpeg-commands/convert-video-for-instagram.md)
-   26. [Batch convert .avi files to .mp4](docs/ffmpeg-commands/batch-convert-avi-files-to-mp4.md)
-   27. [Extract all frames from a video](docs/ffmpeg-commands/extract-all-frames-from-a-video.md)
-   28. [Increase the volume of a video](docs/ffmpeg-commands/increase-the-volume-of-a-video.md)
-   29. [Convert a video to grayscale](docs/ffmpeg-commands/convert-a-video-to-grayscale.md)
-   30. [Creating a thumbnail from a video](docs/ffmpeg-commands/creating-a-thumbnail-from-a-video.md)
-   31. [Stabilize a shaky video](docs/ffmpeg-commands/stabilize-a-shaky-video.md)
-   32. [Adding a simple text overlay to a video](docs/ffmpeg-commands/adding-a-simple-text-overlay-to-a-video.md)
-   33. [Convert video to 4K](docs/ffmpeg-commands/convert-video-to-4k.md)
-   34. [Reverse a video](docs/ffmpeg-commands/reverse-a-video.md)
-   35. [Convert a video to vertical](docs/ffmpeg-commands/convert-a-video-to-vertical.md)
-   36. [Convert a series of images to a timelapse video](docs/ffmpeg-commands/convert-a-series-of-images-to-a-timelapse-video.md)
+VideoAlchemy enhances video processing in several ways:
 
-## Contributing to VideoAlchemy
+1. **Readable Attributes**: VideoAlchemy transforms the complexity of FFmpeg command-line syntax into a clear, structured format using YAML attributes. This reduces the chance of errors and improves the legibility of the command.
 
-Your expertise and insights can help shape the future of VideoAlchemy. We are passionate about collaboration and encourage you to contribute in the following ways:
+2. **Rich YAML Validation**: The `viddo-compose.yaml` file provides real-time validation, helping you craft correct FFmpeg commands by offering clear syntax and error-checking mechanisms. Common FFmpeg pitfalls are automatically mitigated, resulting in smoother workflows.
 
-- **Submit Improvements**: Found an optimization for an existing command? Share your knowledge through a pull request.
-- **Propose New Commands**: Have innovative FFmpeg commands? Contribute by adding them to our growing list.
-- **Report Issues**: Encounter a problem or error? Open an issue to help us refine our toolkit.
-- **Engage with Our Community**: Join discussions, provide feedback, and help others in our community forums.
+3. **Command Sequencing**: Need to run multiple FFmpeg commands in sequence? VideoAlchemy makes this simple by allowing you to chain commands and set dependencies between tasks within the YAML file. This is especially useful for projects requiring multiple steps, like video conversion followed by audio extraction.
 
+## VideoAlchemy Command
+
+The `videoalchemy` command is a binary written in Go that processes a series of FFmpeg tasks defined in a YAML configuration file. The configuration file is easy to read and write, and it allows you to execute FFmpeg commands sequentially without manually chaining them.
+
+### Example `viddo-compose.yaml` File
+
+```yaml
+version: 0.1  # Schema version of viddo-compose
+
+generate_path: "./output"  # Output directory for processed files
+
+tasks:  
+  - name: Convert to AVI  
+    command: ffmpeg  
+    inputs:  
+      - id: input_video  
+        source: 'input.mp4'  
+    outputs:  
+      - id: output_avi  
+        source: 'output.avi'  
+        overwrite: true  
+
+  - name: Extract Audio  
+    command: ffmpeg  
+    inputs:  
+      - id: output_avi  
+        output_id: output_avi  # Reference from the previous task  
+    codecs:  
+      - codec_name:
+          audio: copy  
+        video_none: true  
+    outputs:  
+      - id: audio_only  
+        source: 'output_audio.mp3'  
+        overwrite: true  
+```
+
+### Key Features:
+
+- **Readable and Organized**: Rather than memorizing FFmpeg's complex flags and options, you can clearly define inputs, outputs, codecs, and filters in an intuitive format.
+- **Command Sequencing**: Define dependencies between tasks using `run_after` to ensure commands run in the desired order.
+- **Error Prevention**: YAML validation ensures that FFmpeg commands are properly formed, helping to avoid errors early in the workflow.
+
+## Contributing
+
+We welcome contributions from the community to make VideoAlchemy better! Here's how you can get involved:
+
+- **Improve Readability**: Suggest improvements to the way we structure attributes for video processing.
+- **Expand Validation**: Help us enhance our YAML validation to cover more complex FFmpeg use cases.
+- **Create New Commands**: Propose and implement new commands and workflows.
 
 ## License
 
-VideoAlchemy is distributed under the [MIT License](LICENSE). By contributing, you agree that your contributions will be licensed under the same.
+VideoAlchemy is licensed under the [MIT License](LICENSE). Contributions are licensed under the same terms.
 
 ## Support Us
 
-If you find VideoAlchemy useful, consider supporting our work. Donations help us maintain the project and steer its future development. Below are QR codes for cryptocurrency donations:
+Your support keeps this project growing. Consider donating to help us continue developing VideoAlchemy.
 
 - [Bitcoin (BTC)](donate/donate.md)
 - [Ethereum (ETH)](donate/donate.md)
 
-Your support is greatly appreciated!
+---
+
+For more information, visit the [Viddo Compose Tutorial](docs/viddo-compose-tutorial.md).

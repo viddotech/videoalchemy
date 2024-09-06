@@ -133,4 +133,6 @@ dist
 site
 .idea
 
+sample/generated
+sample/outputs
 videoalchemy
