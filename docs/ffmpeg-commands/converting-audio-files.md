@@ -2,6 +2,24 @@
 
 Convert audio files from one format to another using FFmpeg.
 
+## VideoAlchemy Compose File
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Converting Audio Files
+    command: ffmpeg
+    inputs:
+      - id: input_audio
+        source: 'input.wav'
+    outputs:
+      - id: output_audio
+        overwrite: true
+        source: 'output.mp3'
+```
+
 ## Command
 
 ```bash

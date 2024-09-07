@@ -3,6 +3,25 @@
 
 Convert video files from one format to another using various tools.
 
+## VideoAlchemy Compose File
+ 
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Basic Video Conversion
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    outputs:
+      - id: output_avi
+        overwrite: true
+        source: 'output.avi'
+```
+
 ## FFmpeg Command
 
 ```bash

@@ -2,6 +2,34 @@
 
 Convert videos to HTTP Live Streaming (HLS) format using FFmpeg, enabling adaptive streaming over the web for various devices and network conditions.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1  # Schema version of viddo-compose
+
+generate_path: "./generated"  # Directory of log and command files
+
+tasks:
+  - name: Convert Video to HLS Format
+    command: ffmpeg
+    inputs:
+      - id: input_11
+        source: 'input.mp4'
+    outputs:
+      - id: output_11
+        overwrite: true
+        source: 'output.m3u8'
+    codecs:
+      - codec_name:
+          video: copy
+          audio: copy
+        hls:
+          time: 10
+          list_size: 0
+          start_number: 0
+```
+
+
 ## Command
 
 ```bash

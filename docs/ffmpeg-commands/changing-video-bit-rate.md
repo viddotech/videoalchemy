@@ -2,6 +2,28 @@
 
 Adjust the bit rate of a video file using FFmpeg to change its size and quality, useful for optimizing videos for various bandwidths or storage constraints.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1  # Schema version of viddo-compose
+
+generate_path: "./generated"  # Directory of log and command files
+
+tasks:
+  - name: Changing Video Bit Rate
+    command: ffmpeg
+    inputs:
+      - id: input_4
+        source: 'input.mp4'
+    outputs:
+      - id: output_4
+        overwrite: true
+        source: 'output.mp4'
+    codecs:
+      - constant_bitrate:
+          video: 1M
+```
+
 ## Command
 
 ```bash

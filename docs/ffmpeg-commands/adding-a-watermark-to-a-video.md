@@ -2,6 +2,31 @@
 
 Embed a watermark image onto a video file using FFmpeg to brand or copyright protect your video content.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Adding a Watermark to a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+      - id: watermark
+        source: 'watermark.png'
+    codecs:
+      - video_filters:
+          - name: overlay
+            value: "10:10"
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 ```bash

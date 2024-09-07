@@ -11,7 +11,7 @@ import (
 func RootCommand(taskService services.TaskService) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "VideoAlchemy",
-		Short: "VideoAlchemy is on of utility of Viddo!",
+		Short: "VideoAlchemy: Simplify your media workflows with ease!",
 	}
 
 	cmd.AddCommand(ComposeCommand(taskService))

@@ -2,9 +2,24 @@
 
 Welcome to the VideoAlchemy Guide. This document provides an overview of video processing by FFmpeg, including a collection of useful commands and detailed descriptions for each.
 
-## Table of Contents
+## Getting Started
 
-### Essentiall FFmpeg Commands
+videoalchemy currently supports Linux and macOS. Windows support is coming soon.
+
+### Installation
+
+```bash
+curl -L -o videoalchemy https://github.com/viddotech/videoalchemy/releases/download/v0.0.1-alpha/videoalchemy
+chmod +x videoalchemy
+```
+
+### Run VideoAlchemy
+
+```bash
+videoalchemy compose -f viddo-compose.yaml
+```
+
+## Essentially FFMPEG Commands by VideoAlchemy
 
    1. [Basic video conversion](ffmpeg-commands/basic-video-conversion.md)
    2. [Extracting audio from video](ffmpeg-commands/extracting-audio-from-video.md)

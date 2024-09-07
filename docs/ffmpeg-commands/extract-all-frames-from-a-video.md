@@ -2,6 +2,25 @@
 
 Extract every frame from a video file as individual image files using FFmpeg, useful for detailed editing, analysis, or creating frame-by-frame animations.
 
+## VideoAlchemy Compose File
+    
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Extract All Frames from a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output%d.png'
+```
+
 ## Command
 
 ```bash

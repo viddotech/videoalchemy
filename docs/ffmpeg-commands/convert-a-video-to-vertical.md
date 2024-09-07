@@ -2,6 +2,31 @@
 
 Transform a horizontal (landscape) video into a vertical (portrait) format using FFmpeg, making it suitable for platforms that prefer vertical content, such as social media stories or mobile viewing.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1  # Schema version of viddo-compose
+
+generate_path: "./generated"  # Directory of log and command files
+
+tasks:
+  - name: Convert a Video to Vertical
+    command: ffmpeg
+    inputs:
+      - id: input_8
+        source: 'input.mp4'
+    outputs:
+      - id: output_8
+        overwrite: true
+        source: 'output.mp4'
+    codecs:
+      - video_filters:
+          - name: pad
+            value: ih*9/16:ih:(ow-iw)/2:0
+        codec_name:
+          audio: copy
+```
+
 ## Command
 
 ```bash

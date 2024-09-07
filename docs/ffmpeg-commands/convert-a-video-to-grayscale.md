@@ -2,6 +2,29 @@
 
 Transform a color video into grayscale using FFmpeg, simplifying the visual content or creating a specific aesthetic effect.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1  # Schema version of viddo-compose
+
+generate_path: "./generated"  # Directory of log and command files
+
+tasks:
+  - name: Convert a Video to Grayscale
+    command: ffmpeg
+    inputs:
+      - id: input_7
+        source: 'input.mp4'
+    outputs:
+      - id: output_7
+        overwrite: true
+        source: 'output.mp4'
+    codecs:
+      - video_filters:
+          - name: format
+            value: gray
+```
+
 ## Command
 
 ```bash

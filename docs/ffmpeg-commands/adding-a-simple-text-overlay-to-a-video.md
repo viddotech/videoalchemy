@@ -2,6 +2,29 @@
 
 Embed a text overlay onto a video file using FFmpeg's `drawtext` filter, ideal for watermarking, titles, or annotations.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Adding a Simple Text Overlay to a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - video_filters:
+          - name: drawtext
+            value: "text='Your Text Here':fontcolor=white:fontsize=24:x=10:y=10"
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 ```bash

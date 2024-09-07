@@ -2,6 +2,29 @@
 
 Generate a thumbnail image from a video file at a specific time frame using FFmpeg, useful for previews or video content indexing.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Creating a Thumbnail from a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - video_filters:
+          - name: select
+            value: 'eq(n\,100)'
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.png'
+```
+
 ## Command
 
 ```bash

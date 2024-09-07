@@ -2,6 +2,30 @@
 
 Resize video files to a different resolution using FFmpeg.
 
+## VideoAlchemy Compose File
+    
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+- name: Resizing Video
+  command: ffmpeg
+  inputs:
+    - id: input_video
+      source: 'input.mp4'
+      codecs:
+    - video_filters:
+        - name: scale
+          value: "1280:720"
+  outputs:
+    - id: resized_output
+      overwrite: true
+      source: 'output.mp4'
+```
+
+
 ## Command
 
 ```bash

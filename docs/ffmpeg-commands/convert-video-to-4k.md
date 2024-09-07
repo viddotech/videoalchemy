@@ -2,6 +2,29 @@
 
 Upscale a video to 4K resolution using FFmpeg, enhancing its visual quality for displays supporting 4K resolution.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1  # Schema version of viddo-compose
+
+generate_path: "./generated"  # Directory of log and command files
+
+tasks:
+  - name: Convert Video to 4K
+    command: ffmpeg
+    inputs:
+      - id: input_10
+        source: 'input.mp4'
+    outputs:
+      - id: output_10
+        overwrite: true
+        source: 'output.mp4'
+    codecs:
+      - video_filters:
+          - name: scale
+            value: 3840:2160
+```
+
 ## Command
 
 ```bash

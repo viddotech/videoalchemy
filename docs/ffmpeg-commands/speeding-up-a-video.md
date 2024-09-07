@@ -2,6 +2,30 @@
 
 Increase the playback speed of a video file using FFmpeg, useful for creating time-lapse effects or summarizing content.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Speeding Up a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - video_filters:
+          - name: setpts
+            value: '0.5*PTS'
+        audio_none: true
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 ```bash

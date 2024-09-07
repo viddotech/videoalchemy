@@ -2,6 +2,28 @@
 
 Adjust the audio bit rate of a video or audio file using FFmpeg, allowing for modifications in audio quality and file size.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1  # Schema version of viddo-compose
+
+generate_path: "./generated"  # Directory of log and command files
+
+tasks:
+  - name: Changing Audio Bit Rate
+    command: ffmpeg
+    inputs:
+      - id: input_3
+        source: 'input.mp4'
+    outputs:
+      - id: output_3
+        overwrite: true
+        source: 'output.mp4'
+    codecs:
+      - constant_bitrate:
+          audio: 128k
+```
+
 ## Command
 
 ```bash

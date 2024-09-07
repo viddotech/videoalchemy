@@ -2,6 +2,28 @@
 
 Adjust the audio levels in a video file to a standard volume using FFmpeg, improving the listening experience by ensuring consistent audio playback levels.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Normalizing Audio in a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - audio_filters:
+          - name: loudnorm
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 ```bash

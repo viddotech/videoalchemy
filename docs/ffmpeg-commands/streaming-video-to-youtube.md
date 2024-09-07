@@ -2,6 +2,38 @@
 
 Use FFmpeg to stream live video content directly to YouTube, enabling real-time broadcasting of events, presentations, or personal streams.
 
+## VideoAlchemy Compos File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Streaming Video to YouTube
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - codec_name:
+          video: libx264
+          audio: aac
+        video_bitrate: 3000k
+        audio_bitrate: 160k
+        audio_sampling_rate: 44100
+        preset: veryfast
+        maxrate: 3000k
+        bufsize: 6000k
+        pix_fmt: yuv420p
+        g: 50
+    outputs:
+      - id: output_1
+        overwrite: true
+        format: flv
+        source: 'rtmp://a.rtmp.youtube.com/live2/your-stream-key'
+```
+
 ## Command
 
 ```bash

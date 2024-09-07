@@ -2,6 +2,29 @@
 
 Record video from a webcam directly to a file using FFmpeg, allowing for easy creation of video content or video calls recordings.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Capturing Webcam to a Video File
+    command: ffmpeg
+    inputs:
+      - id: input_2
+        source: '/dev/video0'
+    outputs:
+      - id: output_2
+        overwrite: true
+        source: 'output.mp4'
+    codecs:
+      - codec_name:
+          video: v4l2
+```
+
+
 ## Command (Linux)
 
 ```bash

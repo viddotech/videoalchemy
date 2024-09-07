@@ -2,6 +2,30 @@
 
 Create a video file from a sequence of images using FFmpeg, ideal for timelapse videos or animations.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Creating a Video from Images
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input%d.jpg'
+    codecs:
+      - input_framerate: 24
+        codec_name:
+          video: libx264
+        pixel_format: yuv420p
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 ```bash

@@ -2,6 +2,29 @@
 
 Enhance the audio level within a video file using FFmpeg, ideal for videos with low audio levels or when you want to emphasize certain audio elements.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Increase the Volume of a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - audio_filters:
+          - name: volume
+            value: 2.0
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 ```bash

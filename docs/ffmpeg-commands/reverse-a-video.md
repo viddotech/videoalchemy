@@ -2,6 +2,31 @@
 
 Create a reversed playback effect for a video file using FFmpeg, making the video play backward, which can be used for creative effects or analysis.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Reverse a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - video_filters:
+          - name: reverse
+      - audio_filters:
+          - name: areverse
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
+
 ## Command
 
 ```bash

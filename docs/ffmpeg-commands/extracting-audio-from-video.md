@@ -2,6 +2,29 @@
 
 Extract the audio stream from a video file and save it as a separate audio file using FFmpeg.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Extracting Audio from Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - codec_name:
+          audio: copy
+        video_none: true
+    outputs:
+      - id: output_audio
+        overwrite: true
+        source: 'output.mp3'
+```
+
 ## FFmpeg Command
 
 ```bash

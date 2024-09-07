@@ -2,6 +2,34 @@
 
 Create a GIF from a video file using FFmpeg, ideal for short clips or animations.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1  # Schema version of viddo-compose
+
+generate_path: "./generated"  # Directory of log and command files
+
+tasks:
+  - name: Converting a Video to GIF
+    command: ffmpeg
+    inputs:
+      - id: input_12
+        source: 'input.mp4'
+    outputs:
+      - id: output_12
+        overwrite: true
+        source: 'output.gif'
+    codecs:
+      - video_filters:
+          - name: fps
+            value: 10
+          - name: scale
+            value: 320:-1
+            flags: lanczos
+        codec_name:
+          video: gif
+```
+
 ## Command
 
 ```bash

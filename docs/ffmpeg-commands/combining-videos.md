@@ -2,6 +2,26 @@
 
 Concatenate or join multiple video files into a single file using FFmpeg.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1  # Schema version of viddo-compose
+
+generate_path: "./generated"  # Directory of log and command files
+
+tasks:
+  - name: Combining Videos
+    command: ffmpeg
+    codecs:
+      - concat_files:
+          - source: 'input1.mp4'
+          - source: 'input2.mp4'
+    outputs:
+      - id: output_5
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 For files with the same codecs:

@@ -2,6 +2,30 @@
 
 Rotate a video by 90, 180, or 270 degrees using FFmpeg, useful for correcting orientation after recording or for creative effects.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Rotating a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - video_filters:
+          - name: transpose
+            value: 1
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
+
 ## Command
 
 ```bash

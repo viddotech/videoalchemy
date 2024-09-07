@@ -2,6 +2,29 @@
 
 Crop video files to remove unwanted portions from the frame using FFmpeg.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Cropping Videos
+    command: ffmpeg
+    inputs:
+      - id: input_video
+        source: 'input.mp4'
+    codecs:
+      - video_filters:
+          - name: crop
+            value: "640:480:100:50"
+    outputs:
+      - id: cropped_output
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 ```bash

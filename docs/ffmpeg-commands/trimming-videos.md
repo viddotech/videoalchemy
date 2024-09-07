@@ -2,6 +2,25 @@
 
 Trim or cut a portion of a video file to a specific start and end time using FFmpeg.
 
+## VideoAlchemy Compose File
+
+```yaml
+tasks:
+  - name: Trimming Videos
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
+    codecs:
+      - time_part:
+          start_time: "00:00:10.000"
+          end_time: "00:00:20.000"
+    outputs:
+      - id: trim_video
+        overwrite: true
+        source: 'sample/outputs/trim.mp4'
+```
+
 ## Command
 
 ```bash

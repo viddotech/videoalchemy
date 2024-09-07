@@ -2,6 +2,28 @@
 
 Stabilize shaky video footage using FFmpeg's `deshake` filter, improving the viewing experience by reducing unwanted camera movements.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Stabilize a Shaky Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - video_filters:
+          - name: deshake
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 ```bash

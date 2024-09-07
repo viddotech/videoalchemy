@@ -2,6 +2,38 @@
 
 Optimize and format videos for Instagram posting, ensuring compatibility with Instagram's video requirements for feed, stories, and IGTV.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1  # Schema version of viddo-compose
+
+generate_path: "./generated"  # Directory of log and command files
+
+tasks:
+  - name: Convert Video for Instagram
+    command: ffmpeg
+    inputs:
+      - id: input_9
+        source: 'input.mp4'
+    outputs:
+      - id: output_9
+        overwrite: true
+        source: 'output.mp4'
+    codecs:
+      - video_filters:
+          - name: scale
+            value: 1080:1920
+          - name: setsar
+            value: 1:1
+        codec_name:
+          video: libx264
+          audio: aac
+        crf: 23
+        audio_bitrate: 128k
+        preset: veryfast
+        shortest: true
+```
+
 ## Command for Feed and Stories
 
 ```bash

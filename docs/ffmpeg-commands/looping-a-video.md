@@ -2,6 +2,32 @@
 
 Create a looped version of a video file using FFmpeg, repeating the content for a specified number of times or duration.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Looping a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - stream_loop: -1
+        codec_name:
+          video: copy
+          audio: copy
+        shortest: true
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
+
 ## Command
 
 ```bash

@@ -2,6 +2,31 @@
 
 Combine an audio track with a video file, replacing the original audio of the video using FFmpeg.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Adding Audio to a Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'video.mp4'
+      - id: input_2
+        source: 'audio.mp3'
+    codecs:
+      - codec_name:
+          video: copy
+          audio: aac
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
 ## Command
 
 ```bash

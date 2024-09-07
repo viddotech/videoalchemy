@@ -2,6 +2,34 @@
 
 Optimize and convert videos for web playback, ensuring compatibility and efficient loading across various browsers and devices using FFmpeg.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Converting Video for Web
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - codec_name:
+          video: libx264
+          audio: aac
+        video_bitrate: 1M
+        audio_bitrate: 128k
+        preset: medium
+        move_flags: faststart
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output.mp4'
+```
+
+
 ## Command
 
 ```bash

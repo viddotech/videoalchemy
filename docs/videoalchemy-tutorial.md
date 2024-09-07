@@ -1,12 +1,14 @@
-## Viddo Compose Tutorial
-
-The `viddo-compose.yaml` file is a configuration file used to define a series of video processing tasks using FFmpeg. Each task specifies the command to run, the inputs, outputs, and any codecs or filters to apply. Below is a detailed explanation of the attributes used in the `viddo-compose.yaml` file:
+## VideoAlchemy Tutorial
 
 ### Run VideoAlchemy
 
 ```bash
 videoalchemy compose -f viddo-compose.yaml
 ```
+
+The `viddo-compose.yaml` file is a configuration file used to define a series of video processing tasks using FFmpeg. Each task specifies the command to run, the inputs, outputs, and any codecs or filters to apply. Below is a detailed explanation of the attributes used in the `viddo-compose.yaml` file:
+
+
 
 ### Example `viddo-compose.yaml` File
 

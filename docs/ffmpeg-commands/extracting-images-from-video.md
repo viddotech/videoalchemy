@@ -2,6 +2,29 @@
 
 Extract frames from a video file as individual image files using FFmpeg, useful for thumbnails or analysis.
 
+## VideoAlchemy Compose File
+
+```yaml
+version: 1
+
+generate_path: "./generated"
+
+tasks:
+  - name: Extracting Images from Video
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'input.mp4'
+    codecs:
+      - video_filters:
+          - name: fps
+            value: 1
+    outputs:
+      - id: output_1
+        overwrite: true
+        source: 'output%d.png'
+```
+
 ## Command
 
 ```bash

@@ -11,8 +11,10 @@ Whether you're processing a single video or executing a sequence of commands, Vi
 
 - [Introduction](#introduction)
 - [Why VideoAlchemy?](#why-videoalchemy)
-- [VideoAlchemy Command](#videoalchemy-command)
-- [Viddo Compose Tutorial](docs/viddo-compose-tutorial.md)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Run VideoAlchemy](#run-videoalchemy)
+- [VideoAlchemy Tutorial](docs/videoalchemy-tutorial.md)
 - [Contributing](#contributing)
 - [Upcoming Enhancements and Support](#upcoming-enhancements-and-support)
 - [License](#license)
@@ -32,9 +34,16 @@ VideoAlchemy enhances video processing in several ways:
 
 3. **Command Sequencing**: Need to run multiple FFmpeg commands in sequence? VideoAlchemy makes this simple by allowing you to chain commands and set dependencies between tasks within the YAML file. This is especially useful for projects requiring multiple steps, like video conversion followed by audio extraction.
 
-## VideoAlchemy Command
+## Getting Started
 
-The `videoalchemy` command is a binary written in Go that processes a series of FFmpeg tasks defined in a YAML configuration file. The configuration file is easy to read and write, and it allows you to execute FFmpeg commands sequentially without manually chaining them.
+videoalchemy currently supports Linux and macOS. Windows support is coming soon.
+
+### Installation
+
+```bash
+curl -L -o videoalchemy https://github.com/viddotech/videoalchemy/releases/download/v0.0.1-alpha/videoalchemy
+chmod +x videoalchemy
+```
 
 ### Run VideoAlchemy
 
