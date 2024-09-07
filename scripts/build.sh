@@ -1,0 +1,1 @@
+go build -ldflags="-X 'main.version=v0.0.1-alpha' -X 'main.date=$(date -u +%Y-%m-%d)'" -o videoalchemy ./cmd/compose
