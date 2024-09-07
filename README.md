@@ -5,15 +5,18 @@ Welcome to **VideoAlchemy**, an advanced toolkit that offers a more readable and
 
 Whether you're processing a single video or executing a sequence of commands, VideoAlchemy ensures a smoother and more intuitive experience.
 
+![Screenshot](docs/assets/videoalchemy-demo.gif)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Why VideoAlchemy?](#why-videoalchemy)
 - [VideoAlchemy Command](#videoalchemy-command)
+- [Viddo Compose Tutorial](docs/viddo-compose-tutorial.md)
 - [Contributing](#contributing)
+- [Upcoming Enhancements and Support](#upcoming-enhancements-and-support)
 - [License](#license)
-- [Support Us](#support-us)
-- [Viddo Compose Tutorial](#viddo-compose-tutorial)
+
 
 ## Introduction
 
@@ -33,12 +36,18 @@ VideoAlchemy enhances video processing in several ways:
 
 The `videoalchemy` command is a binary written in Go that processes a series of FFmpeg tasks defined in a YAML configuration file. The configuration file is easy to read and write, and it allows you to execute FFmpeg commands sequentially without manually chaining them.
 
+### Run VideoAlchemy
+
+```bash
+videoalchemy compose -f viddo-compose.yaml
+```
+
 ### Example `viddo-compose.yaml` File
 
 ```yaml
-version: 0.1  # Schema version of viddo-compose
+version: 1  # Schema version of viddo-compose
 
-generate_path: "./output"  # Output directory for processed files
+generate_path: "./generated"  # Directory of log and command files
 
 tasks:  
   - name: Convert to AVI  
@@ -80,17 +89,26 @@ We welcome contributions from the community to make VideoAlchemy better! Here's 
 - **Expand Validation**: Help us enhance our YAML validation to cover more complex FFmpeg use cases.
 - **Create New Commands**: Propose and implement new commands and workflows.
 
-## License
+## Upcoming Enhancements and Support
 
-VideoAlchemy is licensed under the [MIT License](LICENSE). Contributions are licensed under the same terms.
+We are continuously working to enhance VideoAlchemy. Here are some exciting features we plan to introduce in the future:
 
-## Support Us
+1. **Support MPEG-DASH**: Extend the toolkit to support MPEG-DASH, enabling adaptive streaming for high-quality video delivery over the internet.
+
+2. **Complete FFmpeg Parameters**: Expand the YAML schema to support all FFmpeg parameters, providing users with the full range of FFmpeg's capabilities directly within the `viddo-compose.yaml` file.
+
+3. **Cloud Storage Integration**: Add support for various cloud storage solutions such as Azure Storage, AWS S3, Minio, and more, allowing users to specify these as source files for their video processing tasks.
+
+4. **Improved Validation**: Enhance the built-in validation mechanisms to cover more complex scenarios and edge cases, ensuring that all FFmpeg commands are correctly formed and executed without errors.
+
+---
 
 Your support keeps this project growing. Consider donating to help us continue developing VideoAlchemy.
 
 - [Bitcoin (BTC)](donate/donate.md)
 - [Ethereum (ETH)](donate/donate.md)
 
----
+## License
 
-For more information, visit the [Viddo Compose Tutorial](docs/viddo-compose-tutorial.md).
+VideoAlchemy is licensed under the [MIT License](LICENSE). Contributions are licensed under the same terms.
+
