@@ -15,6 +15,7 @@ Whether you're processing a single video or executing a sequence of commands, Vi
   - [Installation](#installation)
   - [Run VideoAlchemy](#run-videoalchemy)
 - [VideoAlchemy Tutorial](docs/videoalchemy-tutorial.md)
+- [Blog Posts](#blog-posts)
 - [Contributing](#contributing)
 - [Upcoming Enhancements and Support](#upcoming-enhancements-and-support)
 - [License](#license)
@@ -89,6 +90,10 @@ tasks:
 - **Readable and Organized**: Rather than memorizing FFmpeg's complex flags and options, you can clearly define inputs, outputs, codecs, and filters in an intuitive format.
 - **Command Sequencing**: Define dependencies between tasks using `run_after` to ensure commands run in the desired order.
 - **Error Prevention**: YAML validation ensures that FFmpeg commands are properly formed, helping to avoid errors early in the workflow.
+
+### Blog Posts
+
+- [Creating Multi-Bitrate HLS Videos with VideoAlchemy](https://medium.com/@hsn.gerami/creating-multi-bitrate-hls-videos-with-videoalchemy-59e3e67d6a27)
 
 ## Contributing
 
