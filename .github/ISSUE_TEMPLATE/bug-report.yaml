@@ -1,14 +1,14 @@
 name: Bug Report
 description: Report a bug encountered while operating Kubernetes
-labels: "bug"
+labels:
+  - "bug"
 body:
   - type: textarea
     id: problem
     attributes:
       label: What happened?
       description: |
-        Please provide as much info as possible. Not doing so may result in your bug not being addressed in a timely manner.
-        If this matter is security related, please disclose it privately via https://kubernetes.io/security
+        Please provide as much info as possible.
     validations:
       required: true
 
@@ -31,77 +31,22 @@ body:
     attributes:
       label: Anything else we need to know?
 
-  - type: textarea
-    id: kubeVersion
+  - type: input
+    id: Version
     attributes:
-      label: Kubernetes version
-      value: |
-        <details>
-
-        ```console
-        $ kubectl version
-        # paste output here
-        ```
-
-        </details>
+      label: VideoAlchemy version
+      value: 0.0.1-alpha
     validations:
       required: true
 
-  - type: textarea
-    id: cloudProvider
+  - type: dropdown
+    id: os
     attributes:
-      label: Cloud provider
-      value: |
-        <details>
-
-        </details>
+      label: OS
+      options:
+        - Linux
+        - MacOS
+        - Windows
+      default: 0
     validations:
       required: true
-
-  - type: textarea
-    id: osVersion
-    attributes:
-      label: OS version
-      value: |
-        <details>
-
-        ```console
-        # On Linux:
-        $ cat /etc/os-release
-        # paste output here
-        $ uname -a
-        # paste output here
-
-        # On Windows:
-        C:\> wmic os get Caption, Version, BuildNumber, OSArchitecture
-        # paste output here
-        ```
-
-        </details>
-
-  - type: textarea
-    id: installer
-    attributes:
-      label: Install tools
-      value: |
-        <details>
-
-        </details>
-
-  - type: textarea
-    id: runtime
-    attributes:
-      label: Container runtime (CRI) and version (if applicable)
-      value: |
-        <details>
-
-        </details>
-
-  - type: textarea
-    id: plugins
-    attributes:
-      label: Related plugins (CNI, CSI, ...) and versions (if applicable)
-      value: |
-        <details>
-
-        </details>

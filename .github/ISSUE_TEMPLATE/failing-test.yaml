@@ -6,8 +6,6 @@ body:
     id: jobs
     attributes:
       label: Which jobs are failing?
-      placeholder: |
-        Please only use this template for submitting reports about continuously failing tests or jobs in Kubernetes CI.
     validations:
       required: true
 
@@ -39,10 +37,3 @@ body:
     id: additional
     attributes:
       label: Anything else we need to know?
-
-  - type: textarea
-    id: sigs
-    attributes:
-      label: Relevant SIG(s)
-      description: You can identify the SIG from the "prowjob_config_url" on the testgrid dashboard for a test.
-      value: /sig

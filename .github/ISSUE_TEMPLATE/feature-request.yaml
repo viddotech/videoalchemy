@@ -1,14 +1,14 @@
 name: Enhancement Tracking Issue
 description: Provide supporting details for a feature in development
-labels: "feature"
+labels:
+  - "feature"
 body:
   - type: textarea
     id: feature
     attributes:
       label: What would you like to be added?
       description: |
-        Feature requests are unlikely to make progress as issues. Please consider engaging with SIGs on slack and mailing lists, instead.
-        A proposal that works through the design along with the implications of the change can be opened as a KEP.
+        Feature requests are unlikely to make progress as issues.
     validations:
       required: true
 
