@@ -78,7 +78,9 @@ tasks:
     codecs:  
       - codec_name:
           audio: copy  
-        video_none: true  
+        video_none: true
+    run_after:
+      - Convert to AVI
     outputs:  
       - id: audio_only  
         source: 'output_audio.mp3'  
