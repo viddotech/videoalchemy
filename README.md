@@ -99,6 +99,7 @@ tasks:
 ### Blog Posts
 
 - [Creating Multi-Bitrate HLS Videos with VideoAlchemy](https://medium.com/@hsn.gerami/creating-multi-bitrate-hls-videos-with-videoalchemy-59e3e67d6a27)
+- [Add a Watermark to a Video Using VideoAlchemy](https://dev.to/hsngerami/add-a-watermark-to-a-video-using-videoalchemy-3hlc)
 
 ## Contributing
 
