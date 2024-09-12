@@ -31,7 +31,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-sudo mv videoalchemy /usr/local/bin/
+mv videoalchemy /usr/local/bin/
 if [ $? -ne 0 ]; then
   echo "Failed to move VideoAlchemy to /usr/local/bin. Exiting."
   exit 1
