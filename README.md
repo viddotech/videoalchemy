@@ -5,6 +5,10 @@ Welcome to **VideoAlchemy**, an advanced toolkit that offers a more readable and
 
 Whether you're processing a single video or executing a sequence of commands, VideoAlchemy ensures a smoother and more intuitive experience.
 
+![Version](https://img.shields.io/github/v/release/viddotech/videoalchemy?label=Version)
+![Downloads](https://img.shields.io/github/downloads/viddotech/videoalchemy/total?label=Downloads&cacheSeconds=180)
+
+
 ![Screenshot](docs/assets/videoalchemy-demo.gif)
 
 ## Table of Contents
@@ -42,8 +46,8 @@ videoalchemy currently supports Linux and macOS. Windows support is coming soon.
 ### Installation
 
 ```bash
-curl -L -o videoalchemy https://github.com/viddotech/videoalchemy/releases/download/v0.0.1-alpha/videoalchemy
-chmod +x videoalchemy
+version=$(curl -s https://api.github.com/repos/viddotech/videoalchemy/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")') && \
+curl -O "https://github.com/viddotech/videoalchemy/tree/main/scripts/setup.sh" && chmod +x setup.sh && ./setup.sh "$version" && rm -rf setup.sh
 ```
 
 ### Run VideoAlchemy
