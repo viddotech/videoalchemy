@@ -113,13 +113,22 @@ We welcome contributions from the community to make VideoAlchemy better! Here's 
 
 We are continuously working to enhance VideoAlchemy. Here are some exciting features we plan to introduce in the future:
 
-1. **Support MPEG-DASH**: Extend the toolkit to support MPEG-DASH, enabling adaptive streaming for high-quality video delivery over the internet.
+## Upcoming Enhancements and Support
 
-2. **Complete FFmpeg Parameters**: Expand the YAML schema to support all FFmpeg parameters, providing users with the full range of FFmpeg's capabilities directly within the `viddo-compose.yaml` file.
+We are continuously working to enhance VideoAlchemy. Here are some exciting features we plan to introduce in the future:
 
-3. **Cloud Storage Integration**: Add support for various cloud storage solutions such as Azure Storage, AWS S3, Minio, and more, allowing users to specify these as source files for their video processing tasks.
 
-4. **Improved Validation**: Enhance the built-in validation mechanisms to cover more complex scenarios and edge cases, ensuring that all FFmpeg commands are correctly formed and executed without errors.
+1. **Integration with AI Models/Services**: Leverage AI models and services to offer advanced features like automatic video enhancement, noise reduction, and smart video editing, empowering users with AI-powered video processing tools.
+
+2. **Toolkit for Streamers and YouTubers**: VideoAlchemy will further evolve into an indispensable toolkit tailored for streamers and content creators, offering specialized features such as custom overlays, real-time streaming enhancements, and optimized video formats for platforms like Twitch and YouTube.
+
+3. **Extract FFMPEG Logs for Monitoring**: Implement a system to extract and visualize FFmpeg logs in real-time, enabling users to monitor and troubleshoot their video processing tasks through a detailed log dashboard.
+
+4. **Complete Support for FFmpeg Parameters**: Expand the YAML schema to support all FFmpeg parameters, ensuring users have access to FFmpeg’s full range of options while maintaining VideoAlchemy’s simplified interface. This will be accompanied by comprehensive documentation, providing detailed guidance on each parameter.
+
+5. **Cloud Storage Integration**: Add support for various cloud storage solutions such as Azure Storage, AWS S3, Minio, and more, allowing users to specify these as source files for their video processing tasks.
+
+6. **Improved Validation**: Enhance the built-in validation mechanisms to cover more complex scenarios and edge cases, ensuring that all FFmpeg commands are correctly formed and executed without errors.
 
 ---
 
