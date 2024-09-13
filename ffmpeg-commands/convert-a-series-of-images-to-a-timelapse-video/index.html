@@ -266,6 +266,106 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compose-file-references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compose File References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../donate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Donate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -349,8 +449,8 @@
 <h1 id="convert-a-series-of-images-to-a-timelapse-video">Convert a Series of Images to a Timelapse Video</h1>
 <p>Create a timelapse video from a sequence of images using FFmpeg, perfect for showcasing changes over time or creating stunning visual sequences from still photography.</p>
 <h2 id="command">Command</h2>
-<pre><code class="language-bash">ffmpeg -framerate 24 -pattern_type glob -i 'images/*.jpg' -c:v libx264 -pix_fmt yuv420p timelapse.mp4
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ffmpeg<span class="w"> </span>-framerate<span class="w"> </span><span class="m">24</span><span class="w"> </span>-pattern_type<span class="w"> </span>glob<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;images/*.jpg&#39;</span><span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-pix_fmt<span class="w"> </span>yuv420p<span class="w"> </span>timelapse.mp4
+</span></code></pre></div>
 <h2 id="parameters">Parameters</h2>
 <ul>
 <li><code>-framerate 24</code>: Sets the frame rate for the output video. Adjust this value based on the desired speed of the timelapse and the number of images. A higher frame rate results in a faster timelapse.</li>
@@ -440,7 +540,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>

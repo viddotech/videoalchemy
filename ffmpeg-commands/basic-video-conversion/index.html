@@ -266,6 +266,106 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compose-file-references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compose File References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../donate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Donate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -505,24 +605,24 @@
 <h1 id="basic-video-conversion">Basic Video Conversion</h1>
 <p>Convert video files from one format to another using various tools.</p>
 <h2 id="videoalchemy-compose-file">VideoAlchemy Compose File</h2>
-<pre><code class="language-yaml">version: 1
-
-generate_path: &quot;./generated&quot;
-
-tasks:
-  - name: Basic Video Conversion
-    command: ffmpeg
-    inputs:
-      - id: input_1
-        source: 'input.mp4'
-    outputs:
-      - id: output_avi
-        overwrite: true
-        source: 'output.avi'
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">generate_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./generated&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic Video Conversion</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ffmpeg</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">input_1</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;input.mp4&#39;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">output_avi</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">overwrite</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output.avi&#39;</span>
+</span></code></pre></div>
 <h2 id="ffmpeg-command">FFmpeg Command</h2>
-<pre><code class="language-bash">ffmpeg -i input.mp4 output.avi
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>output.avi
+</span></code></pre></div>
 <h3 id="parameters-for-ffmpeg">Parameters for FFmpeg</h3>
 <ul>
 <li><strong><code>-i input.mp4</code></strong>: Specifies the input file. Replace <code>input.mp4</code> with the path to your source video file.</li>
@@ -536,11 +636,11 @@ tasks:
 </ul>
 <h3 id="gpu-acceleration-command-for-ffmpeg">GPU Acceleration Command for FFmpeg</h3>
 <p>For Nvidia GPUs, use:</p>
-<pre><code class="language-bash">ffmpeg -hwaccel cuda -i input.mp4 -c:v h264_nvenc output.avi
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ffmpeg<span class="w"> </span>-hwaccel<span class="w"> </span>cuda<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-c:v<span class="w"> </span>h264_nvenc<span class="w"> </span>output.avi
+</span></code></pre></div>
 <h2 id="gstreamer-command">GStreamer Command</h2>
-<pre><code class="language-bash">gst-launch-1.0 filesrc location=input.mp4 ! decodebin ! videoconvert ! x264enc ! avimux ! filesink location=output.avi
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>gst-launch-1.0<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>input.mp4<span class="w"> </span>!<span class="w"> </span>decodebin<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>x264enc<span class="w"> </span>!<span class="w"> </span>avimux<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>output.avi
+</span></code></pre></div>
 <h3 id="parameters-for-gstreamer">Parameters for GStreamer</h3>
 <ul>
 <li><strong><code>filesrc location=input.mp4</code></strong>: Specifies the source file.</li>
@@ -557,27 +657,27 @@ tasks:
 </ul>
 <h2 id="opencv-command">OpenCV Command</h2>
 <p>Using OpenCV for video conversion requires writing a small script. Here's an example in Python:</p>
-<pre><code class="language-python">import cv2
-
-# Load the input video
-cap = cv2.VideoCapture('input.mp4')
-
-# Define the codec and create VideoWriter object
-fourcc = cv2.VideoWriter_fourcc(*'DIVX')
-out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
-
-while(cap.isOpened()):
-    ret, frame = cap.read()
-    if not ret:
-        break
-
-    # Write the frame into the file 'output.avi'
-    out.write(frame)
-
-# Release everything if job is finished
-cap.release()
-out.release()
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Load the input video</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s1">&#39;input.mp4&#39;</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Define the codec and create VideoWriter object</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">fourcc</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">&#39;DIVX&#39;</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s1">&#39;output.avi&#39;</span><span class="p">,</span> <span class="n">fourcc</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">while</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">()):</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">ret</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        <span class="k">break</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="c1"># Write the frame into the file &#39;output.avi&#39;</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="c1"># Release everything if job is finished</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</span></code></pre></div>
 <h3 id="possible-errors-for-opencv">Possible Errors for OpenCV</h3>
 <ul>
 <li><strong>Codec not supported</strong>: If the specified codec is not available on the system, OpenCV will fail to write the video file.</li>
@@ -586,8 +686,8 @@ out.release()
 </ul>
 <h2 id="libvlc-command">libVLC Command</h2>
 <p>Converting video files with libVLC also typically involves scripting. Below is an example command using the VLC command line:</p>
-<pre><code class="language-bash">vlc -I dummy input.mp4 vlc://quit --sout &quot;#transcode{vcodec=h264,vb=800,acodec=mp3,ab=128}:standard{access=file,mux=avi,dst='output.avi'}&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>vlc<span class="w"> </span>-I<span class="w"> </span>dummy<span class="w"> </span>input.mp4<span class="w"> </span>vlc://quit<span class="w"> </span>--sout<span class="w"> </span><span class="s2">&quot;#transcode{vcodec=h264,vb=800,acodec=mp3,ab=128}:standard{access=file,mux=avi,dst=&#39;output.avi&#39;}&quot;</span>
+</span></code></pre></div>
 <h3 id="parameters-for-libvlc">Parameters for libVLC</h3>
 <ul>
 <li><strong><code>-I dummy</code></strong>: Runs VLC without an interface.</li>
@@ -700,7 +800,7 @@ out.release()
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>

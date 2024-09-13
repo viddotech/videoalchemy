@@ -266,6 +266,106 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compose-file-references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compose File References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../donate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Donate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -481,28 +581,28 @@
 <h1 id="extracting-audio-from-video">Extracting Audio from Video</h1>
 <p>Extract the audio stream from a video file and save it as a separate audio file using FFmpeg.</p>
 <h2 id="videoalchemy-compose-file">VideoAlchemy Compose File</h2>
-<pre><code class="language-yaml">version: 1
-
-generate_path: &quot;./generated&quot;
-
-tasks:
-  - name: Extracting Audio from Video
-    command: ffmpeg
-    inputs:
-      - id: input_1
-        source: 'input.mp4'
-    codecs:
-      - codec_name:
-          audio: copy
-        video_none: true
-    outputs:
-      - id: output_audio
-        overwrite: true
-        source: 'output.mp3'
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">generate_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./generated&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extracting Audio from Video</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ffmpeg</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">input_1</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;input.mp4&#39;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">codecs</span><span class="p">:</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">codec_name</span><span class="p">:</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">          </span><span class="nt">audio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">copy</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">video_none</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">outputs</span><span class="p">:</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">output_audio</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="nt">overwrite</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;output.mp3&#39;</span>
+</span></code></pre></div>
 <h2 id="ffmpeg-command">FFmpeg Command</h2>
-<pre><code class="language-bash">ffmpeg -i input.mp4 -vn -acodec copy output.mp3
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vn<span class="w"> </span>-acodec<span class="w"> </span>copy<span class="w"> </span>output.mp3
+</span></code></pre></div>
 <h3 id="ffmpeg-parameters">FFmpeg Parameters</h3>
 <ul>
 <li><strong><code>-i input.mp4</code></strong>: Specifies the input video file. Replace <code>input.mp4</code> with the path to your source video file.</li>
@@ -519,15 +619,15 @@ tasks:
 <h3 id="gpu-acceleration-command">GPU Acceleration Command</h3>
 <p>Extracting audio from video typically does not benefit from GPU acceleration as it is primarily an audio processing task. However, if you are dealing with a video file that requires decoding with GPU acceleration, you can use:</p>
 <p>For Nvidia GPUs:</p>
-<pre><code class="language-bash">ffmpeg -hwaccel cuda -i input.mp4 -vn -acodec copy output.mp3
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ffmpeg<span class="w"> </span>-hwaccel<span class="w"> </span>cuda<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vn<span class="w"> </span>-acodec<span class="w"> </span>copy<span class="w"> </span>output.mp3
+</span></code></pre></div>
 <h2 id="opencv">OpenCV</h2>
-<pre><code>unfortunately we could not find a any way.
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>unfortunately we could not find a any way.
+</code></pre></div>
 <h2 id="gstreamer-command">GStreamer Command</h2>
 <p>To extract audio using GStreamer, you can use the following command:</p>
-<pre><code class="language-bash">gst-launch-1.0 -e filesrc location=input.mp4 ! qtdemux ! audio/mpeg ! filesink location=output.mp3
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>gst-launch-1.0<span class="w"> </span>-e<span class="w"> </span>filesrc<span class="w"> </span><span class="nv">location</span><span class="o">=</span>input.mp4<span class="w"> </span>!<span class="w"> </span>qtdemux<span class="w"> </span>!<span class="w"> </span>audio/mpeg<span class="w"> </span>!<span class="w"> </span>filesink<span class="w"> </span><span class="nv">location</span><span class="o">=</span>output.mp3
+</span></code></pre></div>
 <h3 id="parameters-for-gstreamer">Parameters for GStreamer</h3>
 <ul>
 <li><strong><code>filesrc location=input.mp4</code></strong>: Specifies the input video file.</li>
@@ -543,8 +643,8 @@ tasks:
 </ul>
 <h2 id="libvlc-command">libVLC Command</h2>
 <p>To extract audio using libVLC, the command line interface of VLC can be used as follows:</p>
-<pre><code class="language-bash">vlc -I dummy input.mp4 --sout=&quot;#transcode{acodec=mp3,ab=192}:std{access=file,mux=raw,dst=output.mp3}&quot; vlc://quit
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vlc<span class="w"> </span>-I<span class="w"> </span>dummy<span class="w"> </span>input.mp4<span class="w"> </span>--sout<span class="o">=</span><span class="s2">&quot;#transcode{acodec=mp3,ab=192}:std{access=file,mux=raw,dst=output.mp3}&quot;</span><span class="w"> </span>vlc://quit
+</span></code></pre></div>
 <h3 id="parameters-for-libvlc">Parameters for libVLC</h3>
 <ul>
 <li><strong><code>-I dummy</code></strong>: Runs VLC without a GUI.</li>
@@ -645,7 +745,7 @@ tasks:
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>

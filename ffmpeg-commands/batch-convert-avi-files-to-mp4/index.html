@@ -266,6 +266,106 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compose-file-references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compose File References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../donate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Donate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -358,11 +458,11 @@
 <h1 id="batch-convert-avi-files-to-mp4">Batch Convert .AVI Files to .MP4</h1>
 <p>Automate the conversion of multiple .AVI video files to the .MP4 format using FFmpeg, streamlining the process for efficiency and consistency.</p>
 <h2 id="command-linux-and-macos">Command (Linux and macOS)</h2>
-<pre><code class="language-bash">for i in *.avi; do ffmpeg -i &quot;$i&quot; -c:v libx264 -preset fast -c:a aac &quot;${i%.avi}.mp4&quot;; done
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.avi<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-preset<span class="w"> </span>fast<span class="w"> </span>-c:a<span class="w"> </span>aac<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">i</span><span class="p">%.avi</span><span class="si">}</span><span class="s2">.mp4&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</span></code></pre></div>
 <h2 id="command-windows-command-prompt">Command (Windows Command Prompt)</h2>
-<pre><code class="language-bash">FOR %G IN (*.avi) DO ffmpeg -i &quot;%G&quot; -c:v libx264 -preset fast -c:a aac &quot;%~nG.mp4&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>FOR<span class="w"> </span>%G<span class="w"> </span>IN<span class="w"> </span><span class="o">(</span>*.avi<span class="o">)</span><span class="w"> </span>DO<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;%G&quot;</span><span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-preset<span class="w"> </span>fast<span class="w"> </span>-c:a<span class="w"> </span>aac<span class="w"> </span><span class="s2">&quot;%~nG.mp4&quot;</span>
+</span></code></pre></div>
 <h2 id="parameters">Parameters</h2>
 <ul>
 <li><code>-i "$i" / "%G"</code>: Specifies the input .AVI file. The variables <code>$i</code> (for bash) and <code>%G</code> (for CMD) represent each .AVI file found by the loop.</li>
@@ -451,7 +551,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
