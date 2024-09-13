@@ -109,9 +109,6 @@ We welcome contributions from the community to make VideoAlchemy better! Here's 
 - **Expand Validation**: Help us enhance our YAML validation to cover more complex FFmpeg use cases.
 - **Create New Commands**: Propose and implement new commands and workflows.
 
-## Upcoming Enhancements and Support
-
-We are continuously working to enhance VideoAlchemy. Here are some exciting features we plan to introduce in the future:
 
 ## Upcoming Enhancements and Support
 
