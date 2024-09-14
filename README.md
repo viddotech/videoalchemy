@@ -18,7 +18,7 @@ Whether you're processing a single video or executing a sequence of commands, Vi
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Run VideoAlchemy](#run-videoalchemy)
-- [VideoAlchemy Tutorial](docs/videoalchemy-tutorial.md)
+- [VideoAlchemy Docs](https://viddotech.github.io/videoalchemy/)
 - [Blog Posts](#blog-posts)
 - [Contributing](#contributing)
 - [Upcoming Enhancements and Support](#upcoming-enhancements-and-support)
