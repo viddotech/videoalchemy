@@ -1,59 +1,30 @@
-# VideoAlchemy Guide
+# Welcome to VideoAlchemy
+VideoAlchemy is a cutting-edge video processing toolkit designed to simplify the complexity of FFmpeg by using an intuitive YAML-based configuration. Whether you're a content creator, streamer, or developer, VideoAlchemy provides powerful tools to streamline your video processing workflows.
 
-Welcome to the VideoAlchemy Guide. This document provides an overview of video processing by FFmpeg, including a collection of useful commands and detailed descriptions for each.
+# Key Features
+- **Readable and Organized**: Rather than memorizing FFmpeg’s complex flags and options, VideoAlchemy allows you to clearly define inputs, outputs, codecs, and filters in an intuitive format.
+- **Command Sequencing**: Define dependencies between tasks using the run_after feature to ensure commands execute in the desired order.
+- **Error Prevention**: YAML validation ensures that FFmpeg commands are correctly formed, preventing errors early in your workflow and saving time.
 
-## Getting Started
+# Future Enhancements
+At VideoAlchemy, we are constantly improving and expanding our toolkit to meet the evolving needs of our users. Here’s what we have in store:
 
-videoalchemy currently supports Linux and macOS. Windows support is coming soon.
+- **Integration with AI Models/Services**: We plan to offer automatic video enhancement, noise reduction, and smart video editing through AI-powered features.
+- **Toolkit for Streamers and YouTubers**: Specialized tools like custom overlays, real-time streaming enhancements, and optimized formats for platforms like Twitch and YouTube.
+- **Cloud Storage Integration**: Future updates will allow seamless integration with cloud storage solutions such as AWS S3, Azure, and Minio.
 
-### Installation
+# Donate to Support Us
+We believe in keeping VideoAlchemy open, accessible, and constantly evolving. However, maintaining and enhancing this toolkit takes time, effort, and resources. If you’ve found VideoAlchemy helpful, we kindly invite you to consider supporting its development.
 
-```bash
-curl -L -o videoalchemy https://github.com/viddotech/videoalchemy/releases/download/v0.0.1-alpha/videoalchemy
-chmod +x videoalchemy
-```
+# Why Your Support Matters:
 
-### Run VideoAlchemy
+- **Sustained Innovation**: Your contributions directly help us continue improving VideoAlchemy, bringing exciting new features and regular updates to the community.
+- **Empowering Creators**: Every donation allows us to focus on enhancing tools for streamers, YouTubers, and video professionals, ensuring that VideoAlchemy meets your needs now and in the future.
+- **Keeping It Open-Source**: By donating, you help us keep VideoAlchemy free for everyone, enabling creators and developers around the world to access powerful video processing without barriers.
+Every contribution, no matter the size, makes a big difference. If VideoAlchemy has saved you time, simplified your workflow, or empowered your creativity, please consider giving back. Your generosity helps us make this project the best it can be.
 
-```bash
-videoalchemy compose -f viddo-compose.yaml
-```
+Thank you for being part of the VideoAlchemy community. Together, we can continue building something amazing.
 
-## Essentially FFMPEG Commands by VideoAlchemy
+[Donate here](donate.md) and help us shape the future of VideoAlchemy.
 
-   1. [Basic video conversion](ffmpeg-commands/basic-video-conversion.md)
-   2. [Extracting audio from video](ffmpeg-commands/extracting-audio-from-video.md)
-   3. [Converting audio files](ffmpeg-commands/converting-audio-files.md)
-   4. [Resizing videos](ffmpeg-commands/resizing-videos.md)
-   5. [Cropping videos](ffmpeg-commands/cropping-videos.md)
-   6. [Trimming videos](ffmpeg-commands/trimming-videos.md)
-   7. [Combining videos](ffmpeg-commands/combining-videos.md)
-   8. [Adding audio to a video](ffmpeg-commands/adding-audio-to-a-video.md)
-   9. [Converting a video to GIF](ffmpeg-commands/converting-a-video-to-gif.md)
-   10. [Extracting images from video](ffmpeg-commands/extracting-images-from-video.md)
-   11. [Creating a video from images](ffmpeg-commands/creating-a-video-from-images.md)
-   12. [Adding subtitles to a video](ffmpeg-commands/adding-subtitles-to-a-video.md)
-   13. [Adding a watermark to a video](ffmpeg-commands/adding-a-watermark-to-a-video.md)
-   14. [Changing video bit rate](ffmpeg-commands/changing-video-bit-rate.md)
-   15. [Changing audio bit rate](ffmpeg-commands/changing-audio-bit-rate.md)
-   16. [Normalizing audio in a video](ffmpeg-commands/normalizing-audio-in-a-video.md)
-   17. [Rotating a video](ffmpeg-commands/rotating-a-video.md)
-   18. [Speeding up a video](ffmpeg-commands/speeding-up-a-video.md)
-   19. [Slowing down a video](ffmpeg-commands/slowing-down-a-video.md)
-   20. [Converting video for web](ffmpeg-commands/converting-video-for-web.md)
-   21. [Looping a video](ffmpeg-commands/looping-a-video.md)
-   22. [Capturing webcam to a video file](ffmpeg-commands/capturing-webcam-to-a-video-file.md)
-   23. [Streaming video to YouTube](ffmpeg-commands/streaming-video-to-youtube.md)
-   24. [Convert video to HLS format](ffmpeg-commands/convert-video-to-hls-format.md)
-   25. [Convert video for Instagram](ffmpeg-commands/convert-video-for-instagram.md)
-   26. [Batch convert .avi files to .mp4](ffmpeg-commands/batch-convert-avi-files-to-mp4.md)
-   27. [Extract all frames from a video](ffmpeg-commands/extract-all-frames-from-a-video.md)
-   28. [Increase the volume of a video](ffmpeg-commands/increase-the-volume-of-a-video.md)
-   29. [Convert a video to grayscale](ffmpeg-commands/convert-a-video-to-grayscale.md)
-   30. [Creating a thumbnail from a video](ffmpeg-commands/creating-a-thumbnail-from-a-video.md)
-   31. [Stabilize a shaky video](ffmpeg-commands/stabilize-a-shaky-video.md)
-   32. [Adding a simple text overlay to a video](ffmpeg-commands/adding-a-simple-text-overlay-to-a-video.md)
-   33. [Convert video to 4K](ffmpeg-commands/convert-video-to-4k.md)
-   34. [Reverse a video](ffmpeg-commands/reverse-a-video.md)
-   35. [Convert a video to vertical](ffmpeg-commands/convert-a-video-to-vertical.md)
-   36. [Convert a series of images to a timelapse video](ffmpeg-commands/convert-a-series-of-images-to-a-timelapse-video.md)
+

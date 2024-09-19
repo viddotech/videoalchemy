@@ -6,17 +6,40 @@ import (
 	"github.com/viddotech/videoalchemy/internal/domain/task/services"
 	"github.com/viddotech/videoalchemy/internal/infrastructure/compose"
 	"github.com/viddotech/videoalchemy/internal/infrastructure/pretty"
+	"os"
+)
+
+// These variables will be set at build time
+var (
+	version = "dev"     // default version, if not provided during build
+	date    = "unknown" // build date
 )
 
 func RootCommand(taskService services.TaskService) *cobra.Command {
-	cmd := &cobra.Command{
+	rootCmd := &cobra.Command{
 		Use:   "VideoAlchemy",
-		Short: "VideoAlchemy: Simplify your media workflows with ease!",
+		Short: "Simplify your media workflows with ease!",
+		Run: func(cmd *cobra.Command, args []string) {
+			err := cmd.Help()
+			if err != nil {
+				return
+			}
+		},
 	}
 
-	cmd.AddCommand(ComposeCommand(taskService))
+	rootCmd.PersistentFlags().BoolP("version", "v", false, "Print the version number of VideoAlchemy")
 
-	return cmd
+	rootCmd.PersistentPreRun = func(cmd *cobra.Command, args []string) {
+		versionFlag, _ := cmd.Flags().GetBool("version")
+		if versionFlag {
+			fmt.Printf("Version: %s\n", version)
+			os.Exit(0)
+		}
+	}
+
+	rootCmd.AddCommand(ComposeCommand(taskService))
+
+	return rootCmd
 }
 
 func ComposeCommand(taskService services.TaskService) *cobra.Command {
