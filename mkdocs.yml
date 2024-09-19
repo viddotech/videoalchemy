@@ -1,6 +1,11 @@
 site_name: Video Alchemy
 nav: 
   - Home: index.md
+  - Getting Started: getting-started.md
+  - Guides: guides.md
+  - Compose File References: compose-file-references.md
+  - Examples: examples.md
+  - Donate: donate.md
 repo_url: https://github.com/viddotech/videoalchemy
 repo_name: viddotech/videoalchemy
 edit_uri: https://github.com/viddotech/videoalchemy/edit/main/docs/
@@ -9,6 +14,10 @@ theme:
     repo: fontawesome/brands/github-alt
   name: material
   logo: assets/no-text.png
+  features:
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
   palette: 
     - primary: blue grey
     # Palette toggle for light mode
@@ -32,3 +41,11 @@ plugins:
       fallback_to_build_date: true
 extra_javascript:
   - assets/js/github-data.js
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

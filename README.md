@@ -131,8 +131,8 @@ We are continuously working to enhance VideoAlchemy. Here are some exciting feat
 
 Your support keeps this project growing. Consider donating to help us continue developing VideoAlchemy.
 
-- [Bitcoin (BTC)](donate/donate.md)
-- [Ethereum (ETH)](donate/donate.md)
+- [Bitcoin (BTC)](docs/donate.md)
+- [Ethereum (ETH)](docs/donate.md)
 
 ## License
 
