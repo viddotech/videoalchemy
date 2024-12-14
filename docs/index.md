@@ -13,7 +13,7 @@ At VideoAlchemy, we are constantly improving and expanding our toolkit to meet t
 - **Toolkit for Streamers and YouTubers**: Specialized tools like custom overlays, real-time streaming enhancements, and optimized formats for platforms like Twitch and YouTube.
 - **Cloud Storage Integration**: Future updates will allow seamless integration with cloud storage solutions such as AWS S3, Azure, and Minio.
 
-# Donate to Support Us
+# Support as a Sponsor
 We believe in keeping VideoAlchemy open, accessible, and constantly evolving. However, maintaining and enhancing this toolkit takes time, effort, and resources. If you’ve found VideoAlchemy helpful, we kindly invite you to consider supporting its development.
 
 # Why Your Support Matters:
@@ -25,6 +25,6 @@ Every contribution, no matter the size, makes a big difference. If VideoAlchemy 
 
 Thank you for being part of the VideoAlchemy community. Together, we can continue building something amazing.
 
-[Donate here](donate.md) and help us shape the future of VideoAlchemy.
+[Sponsor us here](sponsor.md) and play a pivotal role in shaping the future of VideoAlchemy.
 
 

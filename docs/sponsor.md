@@ -1,4 +1,4 @@
-# Donate Cryptocurrency
+# Support Us with Cryptocurrency
 
 Support us by donating through your preferred cryptocurrency. Your contributions help keep the project going!
 
@@ -11,7 +11,7 @@ Support us by donating through your preferred cryptocurrency. Your contributions
 
 Scan the QR code with your crypto wallet:
 
-![BTC QR code](donate/btc.jpg)
+![BTC QR code](sponsor/btc.jpg)
 
 ---
 
@@ -22,7 +22,7 @@ Scan the QR code with your crypto wallet:
 
 Scan the QR code with your crypto wallet:
 
-![ETH QR code](donate/eth.jpg)
+![ETH QR code](sponsor/eth.jpg)
 
 ---
 

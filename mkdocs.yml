@@ -5,7 +5,7 @@ nav:
   - Guides: guides.md
   - Compose File References: compose-file-references.md
   - Examples: examples.md
-  - Donate: donate.md
+  - Sponsors: sponsor.md
 repo_url: https://github.com/viddotech/videoalchemy
 repo_name: viddotech/videoalchemy
 edit_uri: https://github.com/viddotech/videoalchemy/edit/main/docs/
