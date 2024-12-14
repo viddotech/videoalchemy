@@ -133,7 +133,7 @@ dist
 site
 .idea
 
-sample/generated
+sample/generated*
 sample/outputs
 videoalchemy
 docs/requirements.txt

@@ -7,7 +7,7 @@ import (
 	"github.com/google/uuid"
 	log "github.com/sirupsen/logrus"
 	"github.com/viddotech/videoalchemy/internal/domain/task/entities"
-	"github.com/viddotech/videoalchemy/internal/infrastructure/ffmpeg"
+	"github.com/viddotech/videoalchemy/internal/infrastructure/ffmpeg/command"
 	"github.com/viddotech/videoalchemy/internal/infrastructure/ffmpeg/schema"
 	"github.com/viddotech/videoalchemy/internal/infrastructure/pretty"
 	"os"
@@ -24,7 +24,7 @@ type TaskService struct {
 func (s *TaskService) CreateTasks(allInstructions []schema.Instruction, GeneratePath string) error {
 
 	for _, instruction := range allInstructions {
-		ffmpegCommand, err := ffmpeg.GenerateFFMPEGCommand(instruction, allInstructions, GeneratePath)
+		ffmpegCommand, err := command.GenerateFFMPEGCommand(instruction, allInstructions)
 		if err != nil {
 			log.Fatal("Error generate Ffmpeg command : ", err)
 		}

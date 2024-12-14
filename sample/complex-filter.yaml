@@ -1,0 +1,41 @@
+version: 1.0
+
+generate_path: "./sample/generated-f-complex"
+inspector:
+  path: ffprobe
+  command_type: ffprobe
+
+
+tasks:
+  - name: Base Filter Complex
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'sample/inputs/multi-audio-track.mp4'
+      - id: input_2
+        source: 'sample/inputs/sample-10s.mp4'
+    complex_filters:
+      - stream_from:
+          input_id: input_1
+          stream_type: video
+        outputs_name: [my-scale]
+        filters:
+          - name: scale
+            value: 1280:720
+      - stream_from:
+          filter_output_name: my-scale
+          input_id: input_2
+          stream_type: video
+        outputs_name: [my-overlay]
+        filters:
+          - name: overlay
+            value: '10:10'
+    streams:
+      - stream_from:
+          filter_output_name: my-overlay
+        stream_to:
+          output_id: overlay_video
+    outputs:
+      - id: overlay_video
+        overwrite: true
+        source: 'sample/generated-f-complex/outputs/overlay_video.mp4'
