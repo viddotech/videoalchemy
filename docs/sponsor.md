@@ -1,6 +1,6 @@
 # Support Us with Cryptocurrency
 
-Support us by donating through your preferred cryptocurrency. Your contributions help keep the project going!
+Support us by sponsoring through your preferred cryptocurrency. Your contributions help keep the project going!
 
 ---
 
