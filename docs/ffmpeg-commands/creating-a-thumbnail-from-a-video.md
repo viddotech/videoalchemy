@@ -15,7 +15,7 @@ tasks:
     inputs:
       - id: input_1
         source: 'input.mp4'
-    codecs:
+    streams:
       - video_filters:
           - name: select
             value: 'eq(n\,100)'

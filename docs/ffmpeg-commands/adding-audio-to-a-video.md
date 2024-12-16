@@ -17,10 +17,14 @@ tasks:
         source: 'video.mp4'
       - id: input_2
         source: 'audio.mp3'
-    codecs:
-      - codec_name:
+    streams:
+      - stream_from:
+          input_id: input_1
+        codec_name:
           video: copy
           audio: aac
+        stream_to:
+          output_id: output_1
     outputs:
       - id: output_1
         overwrite: true

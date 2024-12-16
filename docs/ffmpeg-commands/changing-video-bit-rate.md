@@ -19,7 +19,7 @@ tasks:
       - id: output_4
         overwrite: true
         source: 'output.mp4'
-    codecs:
+    streams:
       - constant_bitrate:
           video: 1M
 ```

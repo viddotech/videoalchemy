@@ -15,7 +15,7 @@ tasks:
     inputs:
       - id: input_1
         source: 'input%d.jpg'
-    codecs:
+    streams:
       - input_framerate: 24
         codec_name:
           video: libx264

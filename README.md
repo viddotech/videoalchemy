@@ -1,6 +1,10 @@
 
 # VideoAlchemy: Simplified, Structured Video Processing
 
+![Overview](videoalchemy-overview.png)
+
+**VideoAlchemy’s first stable version is coming on `January 1st`! Don’t miss it—check our GitHub for the release!**
+
 Welcome to **VideoAlchemy**, an advanced toolkit that offers a more readable and structured way to handle video processing tasks compared to traditional FFmpeg commands. VideoAlchemy enables users to define video processing workflows using a simple YAML-based configuration, enriched with built-in validation to minimize errors and streamline command execution.
 
 Whether you're processing a single video or executing a sequence of commands, VideoAlchemy ensures a smoother and more intuitive experience.
@@ -78,7 +82,7 @@ tasks:
     inputs:  
       - id: output_avi  
         output_id: output_avi  # Reference from the previous task  
-    codecs:  
+    streams:  
       - codec_name:
           audio: copy  
         video_none: true
@@ -92,7 +96,7 @@ tasks:
 
 ### Key Features:
 
-- **Readable and Organized**: Rather than memorizing FFmpeg's complex flags and options, you can clearly define inputs, outputs, codecs, and filters in an intuitive format.
+- **Readable and Organized**: Rather than memorizing FFmpeg's complex flags and options, you can clearly define inputs, outputs, streams, and filters in an intuitive format.
 - **Command Sequencing**: Define dependencies between tasks using `run_after` to ensure commands run in the desired order.
 - **Error Prevention**: YAML validation ensures that FFmpeg commands are properly formed, helping to avoid errors early in the workflow.
 

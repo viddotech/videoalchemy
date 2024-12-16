@@ -15,7 +15,7 @@ tasks:
     inputs:
       - id: input_1
         source: 'input.mp4'
-    codecs:
+    streams:
       - audio_filters:
           - name: volume
             value: 2.0

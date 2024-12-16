@@ -19,7 +19,7 @@ tasks:
       - id: output_7
         overwrite: true
         source: 'output.mp4'
-    codecs:
+    streams:
       - video_filters:
           - name: format
             value: gray

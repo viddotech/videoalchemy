@@ -31,7 +31,9 @@ func GenerateFFMPEGCommand(inst schema.Instruction, allInstructions []schema.Ins
 
 	// Generate Complex Filters
 	complexFiltersString, err := GenerateComplexFilterParameters(inst, noOutputProcessStreams)
-	ffmpegCommand = append(ffmpegCommand, "-filter_complex", complexFiltersString)
+	if complexFiltersString != "" {
+		ffmpegCommand = append(ffmpegCommand, "-filter_complex", complexFiltersString)
+	}
 
 	// Grouping process streams by output ID
 	var streamsPerOutput = make(map[string][]schema.ProcessStream)
@@ -101,8 +103,7 @@ func mapParamToStream(param string, streamType string, defaultStreamType string,
 	}
 	if streamTo != nil && streamTo.StreamTypeIndex != nil {
 		mapParamTo += fmt.Sprintf(":%d", *streamTo.StreamTypeIndex)
-	}
-	if streamFrom != nil && streamFrom.StreamTypeIndex != nil {
+	} else if streamFrom != nil && streamFrom.StreamTypeIndex != nil {
 		mapParamTo += fmt.Sprintf(":%d", *streamFrom.StreamTypeIndex)
 	}
 	return mapParamTo
@@ -314,6 +315,11 @@ func selectStream(processStream schema.ProcessStream, inst schema.Instruction) s
 	if processStream.StreamFrom.StreamTypeIndex != nil {
 		connector += fmt.Sprintf(":%d", *processStream.StreamFrom.StreamTypeIndex)
 	}
+
+	if processStream.StreamFrom.StreamType == "" && processStream.StreamFrom.StreamTypeIndex == nil {
+		return ""
+	}
+
 	return connector
 }
 

@@ -6,196 +6,212 @@ inspector:
   command_type: ffprobe
 
 tasks:
-#  - name: Basic Video Conversion
-#    command: ffmpeg
-#    inputs:
-#      - id: input_1
-#        source: 'sample/inputs/multi-audio-track.mp4'
-#    streams:
-#      - stream_from:
-#          input_id: input_1
-#          stream_type: video
-#          stream_type_index: 0
-#        codec_name:
-#          video: copy
-#        stream_to:
-#          output_id: output_avi
-#          stream_type_index: 0
-#      - stream_from:
-#          input_id: input_1
-#          stream_type: audio
-#          stream_type_index: 2
-#        codec_name:
-#          audio: copy
-#        stream_to:
-#          output_id: output_avi
-#          stream_type_index: 0
-#    outputs:
-#      - id: output_avi
-#        overwrite: true
-#        source: 'sample/outputs/1.0/single_audio_track.avi'
-#  - name: Extracting Audio from Video
-#    command: ffmpeg
-#    inputs:
-#      - id: input_2
-#        output_id: output_avi
-#    streams:
-#      - stream_from:
-#          input_id: input_2
-#        codec_name:
-#          audio: libmp3lame
-#        video_none: true
-#        stream_to:
-#          output_id: output_only_audio
-#          stream_type_index: 0
-#    run_after:
-#      - Basic Video Conversion
-#    outputs:
-#      - id: output_only_audio
-#        overwrite: true
-#        source: "sample/outputs/1.0/1280x720_30mb_output_only_audio.mp3"
-#  - name: Resizing Video
-#    command: ffmpeg
-#    inputs:
-#      - id: input_3
-#        source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
-#    streams:
-#      - stream_from:
-#          input_id: input_3
-#          stream_type: video
-#        video_filters:
-#          - name: scale
-#            value: "720:480:flags=lanczos"
-#        stream_to:
-#          output_id: resized_output.mp4
-#    outputs:
-#      - id: resized_output.mp4
-#        overwrite: true
-#        source: 'sample/outputs/1.0/resized.mp4'
-#  - name: Trimming Videos
-#    command: ffmpeg
-#    inputs:
-#      - id: input_4
-#        source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
-#    streams:
-#      - time_part:
-#          start_time: "00:00:10.000"
-#          end_time: "00:00:20.000"
-#    outputs:
-#      - id: trim_video
-#        overwrite: true
-#        source: 'sample/outputs/1.0/trim.mp4'
-#  - name: Combining Videos
-#    command: ffmpeg
-#    inputs:
-#      - id: videos_list
-#        source: 'sample/inputs/videos_list.txt'
-#        format: concat
-#        safe_path: false
-#    outputs:
-#      - id: concat_video
-#        overwrite: true
-#        source: 'sample/outputs/1.0/concat.mp4'
-#  - name: Extract images from video
-#    command: ffmpeg
-#    inputs:
-#      - id: input_5
-#        source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
-#    streams:
-#      - video_filters:
-#          - name: fps
-#            value: 1
-#    outputs:
-#      - id: extract_image_%04d
-#        start_number: 0
-#        length: 10
-#        overwrite: true
-#        source: 'sample/outputs/1.0/extracted/%04d.png'
-#  - name: Creating a video from images
-#    command: ffmpeg
-#    inputs:
-#      - id: input_6
-#        output_id: extract_image_%04d
-#        framerate: 24
-#    streams:
-#      - codec_name:
-#          video: libx264
-#        pixel_format: yuv420p
-#    run_after:
-#      - Extract images from video
-#    outputs:
-#      - id: video_from_images
-#        overwrite: true
-#        source: 'sample/outputs/1.0/video_from_images.mp4'
-#  - name: Convert video to multi-bitrate HLS format
-#    command: ffmpeg
-#    inputs:
-#      - id: input_7
-#        source: 'sample/inputs/sample-10s.mp4'
-#    streams:
-#      - stream_from:
-#          stream_type: audio
-#        stream_name: "my-audio"
-#        codec_name:
-#          audio: aac
-#        constant_bitrate:
-#          audio: 128k
-#        audio_sampling_rate: 48000
-#        stream_to:
-#          output_id: playlist
-#          groups: [playlist_1, playlist_2, playlist_3]
-#      - stream_from:
-#          stream_type: video
-#        stream_name: video_1
-#        inject_streams: ["my-audio"]
-#        video_filters:
-#          - name: scale
-#            value: "-2:720"
-#        constant_bitrate:
-#          video: 3000k
-#        max_rate:
-#          video: 3200k
-#        buffer_size: 6000k
-#        stream_to:
-#          output_id: playlist
-#          groups: playlist_1
-#      - stream_from:
-#          stream_type: video
-#        stream_name: video_2
-#        inject_streams: ["my-audio"]
-#        video_filters:
-#          - name: scale
-#            value: "-2:480"
-#        constant_bitrate:
-#          video: 1500k
-#        max_rate:
-#          video: 1600k
-#        buffer_size: 3000k
-#        stream_to:
-#          output_id: playlist
-#          groups: playlist_2
-#      - stream_from:
-#          stream_type: video
-#        stream_name: video_3
-#        inject_streams: ["my-audio"]
-#        video_filters:
-#          - name: scale
-#            value: "-2:360"
-#        constant_bitrate:
-#          video: 800k
-#        max_rate:
-#          video: 900k
-#        buffer_size: 1800k
-#        stream_to:
-#          output_id: playlist
-#          groups: playlist_3
-#    outputs:
-#      - id: playlist
-#        overwrite: true
-#        format: hls
-#        source: 'sample/outputs/1.0/hls/%v/playlist.m3u8'
-#        hls:
-#          time: 10
-#          segment_filename: "sample/outputs/1.0/hls/%v/segment_%03d.ts"
-#          master_playlist_name: "master.m3u8"
-#          playlist_type: "vod"
+  - name: Basic Video Conversion
+    command: ffmpeg
+    inputs:
+      - id: input_1
+        source: 'sample/inputs/multi-audio-track.mp4'
+    streams:
+      - stream_from:
+          input_id: input_1
+          stream_type: video
+          stream_type_index: 0
+        codec_name:
+          video: copy
+        stream_to:
+          output_id: output_avi
+          stream_type_index: 0
+      - stream_from:
+          input_id: input_1
+          stream_type: audio
+          stream_type_index: 2
+        codec_name:
+          audio: copy
+        stream_to:
+          output_id: output_avi
+          stream_type_index: 0
+    outputs:
+      - id: output_avi
+        overwrite: true
+        source: 'sample/outputs/1.0/single_audio_track.avi'
+  - name: Extracting Audio from Video
+    command: ffmpeg
+    inputs:
+      - id: input_2
+        output_id: output_avi
+    streams:
+      - stream_from:
+          input_id: input_2
+        codec_name:
+          audio: libmp3lame
+        video_none: true
+        stream_to:
+          output_id: output_only_audio
+          stream_type_index: 0
+    run_after:
+      - Basic Video Conversion
+    outputs:
+      - id: output_only_audio
+        overwrite: true
+        source: "sample/outputs/1.0/1280x720_30mb_output_only_audio.mp3"
+  - name: Resizing Video
+    command: ffmpeg
+    inputs:
+      - id: input_3
+        source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
+    streams:
+      - stream_from:
+          input_id: input_3
+          stream_type: video
+        video_filters:
+          - name: scale
+            value: "720:480:flags=lanczos"
+        stream_to:
+          output_id: resized_output.mp4
+    outputs:
+      - id: resized_output.mp4
+        overwrite: true
+        source: 'sample/outputs/1.0/resized.mp4'
+  - name: Trimming Videos
+    command: ffmpeg
+    inputs:
+      - id: input_4
+        source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
+    streams:
+      - time_part:
+          start_time: "00:00:10.000"
+          end_time: "00:00:20.000"
+        stream_from:
+          input_id: input_4
+        stream_to:
+          output_id: trim_video
+    outputs:
+      - id: trim_video
+        overwrite: true
+        source: 'sample/outputs/1.0/trim.mp4'
+  - name: Combining Videos
+    command: ffmpeg
+    inputs:
+      - id: videos_list
+        source: 'sample/inputs/videos_list.txt'
+        format: concat
+        safe_path: false
+    outputs:
+      - id: concat_video
+        overwrite: true
+        source: 'sample/outputs/1.0/concat.mp4'
+  - name: Extract images from video
+    command: ffmpeg
+    inputs:
+      - id: input_5
+        source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
+    streams:
+      - video_filters:
+          - name: fps
+            value: 1
+        stream_from:
+          input_id: input_5
+        stream_to:
+          output_id: extract_image_%04d
+    outputs:
+      - id: extract_image_%04d
+        start_number: 0
+        length: 10
+        overwrite: true
+        source: 'sample/outputs/1.0/extracted/%04d.png'
+  - name: Creating a video from images
+    command: ffmpeg
+    inputs:
+      - id: input_6
+        output_id: extract_image_%04d
+        framerate: 24
+    streams:
+      - codec_name:
+          video: libx264
+        pixel_format: yuv420p
+        stream_from:
+          input_id: input_6
+        stream_to:
+          output_id: video_from_images
+    run_after:
+      - Extract images from video
+    outputs:
+      - id: video_from_images
+        overwrite: true
+        source: 'sample/outputs/1.0/video_from_images.mp4'
+  - name: Convert video to multi-bitrate HLS format
+    command: ffmpeg
+    inputs:
+      - id: input_7
+        source: 'sample/inputs/sample-10s.mp4'
+    streams:
+      - stream_from:
+          input_id: input_7
+          stream_type: audio
+        stream_name: "my-audio"
+        codec_name:
+          audio: aac
+        constant_bitrate:
+          audio: 128k
+        audio_sampling_rate: 48000
+        stream_to:
+          output_id: playlist
+          groups: [playlist_1, playlist_2, playlist_3]
+      - stream_from:
+          input_id: input_7
+          stream_type: video
+        stream_name: video_1
+        inject_streams: ["my-audio"]
+        video_filters:
+          - name: scale
+            value: "-2:720"
+        constant_bitrate:
+          video: 3000k
+        max_rate:
+          video: 3200k
+        buffer_size: 6000k
+        stream_to:
+          output_id: playlist
+          groups: playlist_1
+      - stream_from:
+          input_id: input_7
+          stream_type: video
+        stream_name: video_2
+        inject_streams: ["my-audio"]
+        video_filters:
+          - name: scale
+            value: "-2:480"
+        constant_bitrate:
+          video: 1500k
+        max_rate:
+          video: 1600k
+        buffer_size: 3000k
+        stream_to:
+          output_id: playlist
+          groups: playlist_2
+      - stream_from:
+          input_id: input_7
+          stream_type: video
+        stream_name: video_3
+        inject_streams: ["my-audio"]
+        video_filters:
+          - name: scale
+            value: "-2:360"
+        constant_bitrate:
+          video: 800k
+        max_rate:
+          video: 900k
+        buffer_size: 1800k
+        stream_to:
+          output_id: playlist
+          groups: playlist_3
+    outputs:
+      - id: playlist
+        overwrite: true
+        format: hls
+        source: 'sample/outputs/1.0/hls/%v/playlist.m3u8'
+        hls:
+          time: 10
+          segment_filename: "sample/outputs/1.0/hls/%v/segment_%03d.ts"
+          master_playlist_name: "master.m3u8"
+          playlist_type: "vod"

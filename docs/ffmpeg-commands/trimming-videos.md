@@ -11,7 +11,7 @@ tasks:
     inputs:
       - id: input_1
         source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
-    codecs:
+    streams:
       - time_part:
           start_time: "00:00:10.000"
           end_time: "00:00:20.000"

@@ -19,7 +19,7 @@ tasks:
       - id: output_1
         overwrite: true
         source: 'output.mp4'
-    codecs:
+    streams:
       - video_filters:
           - name: subtitles
             value: 'subtitles.srt'

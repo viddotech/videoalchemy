@@ -15,7 +15,7 @@ tasks:
     inputs:
       - id: input_1
         source: 'input.mp4'
-    codecs:
+    streams:
       - codec_name:
           audio: copy
         video_none: true

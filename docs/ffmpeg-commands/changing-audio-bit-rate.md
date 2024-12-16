@@ -19,7 +19,7 @@ tasks:
       - id: output_3
         overwrite: true
         source: 'output.mp4'
-    codecs:
+    streams:
       - constant_bitrate:
           audio: 128k
 ```

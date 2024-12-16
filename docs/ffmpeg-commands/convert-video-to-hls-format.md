@@ -19,7 +19,7 @@ tasks:
       - id: output_11
         overwrite: true
         source: 'output.m3u8'
-    codecs:
+    streams:
       - codec_name:
           video: copy
           audio: copy

@@ -11,7 +11,7 @@ import (
 	"github.com/go-playground/validator/v10"
 	enTranslations "github.com/go-playground/validator/v10/translations/en"
 	log "github.com/sirupsen/logrus"
-	validate "github.com/viddotech/videoalchemy/internal/infrastructure/compose/validate"
+	"github.com/viddotech/videoalchemy/internal/infrastructure/compose/validate"
 	"github.com/viddotech/videoalchemy/internal/infrastructure/ffmpeg/command"
 	"github.com/viddotech/videoalchemy/internal/infrastructure/ffmpeg/schema"
 	"gopkg.in/yaml.v2"
@@ -90,12 +90,10 @@ func LoadInstruction(composeData schema.ComposeFileSchema) schema.ComposeFileSch
 			} else {
 				source = input.Source
 			}
-			streamsData, err := ExtractInputStreams(composeData.Inspector, source)
-			if err == nil {
-				streams := CreateStreams(input, streamsData)
-				input.InputStreams = append(input.InputStreams, streams...)
-				instruction.InputStreams = append(instruction.InputStreams, streams...)
-			}
+			streamsData, _ := ExtractInputStreams(composeData.Inspector, source)
+			streams := CreateStreams(input, streamsData)
+			input.InputStreams = append(input.InputStreams, streams...)
+			instruction.InputStreams = append(instruction.InputStreams, streams...)
 
 		}
 	}
@@ -103,6 +101,8 @@ func LoadInstruction(composeData schema.ComposeFileSchema) schema.ComposeFileSch
 }
 
 func ExtractInputStreams(inspector schema.Inspector, inputPath string) ([]interface{}, error) {
+	var result map[string]interface{}
+
 	if inspector.CommandType != "ffprobe" {
 		return nil, nil
 	}
@@ -136,7 +136,6 @@ func ExtractInputStreams(inspector schema.Inspector, inputPath string) ([]interf
 		return nil, err
 	}
 
-	var result map[string]interface{}
 	err = json.Unmarshal(output, &result)
 	if err != nil {
 		log.Warnf("Failed to unmarshal ffprobe output: %v", err)
@@ -179,7 +178,11 @@ func GenerateErrorMessages(errs validator.ValidationErrors, trans ut.Translator,
 		// Build the full path for the field
 		fieldPath := strings.Join(namespace, ".")
 
-		translatedErr := fmt.Sprintf(messageStyle("Validation Error: %s => %s"), paramMsgStyle(fieldPath), paramMsgStyle(validate.MapErrorTags[err.Tag()]))
+		vaErrorMessage := validate.MapErrorTags[err.Tag()]
+		if vaErrorMessage == "" {
+			vaErrorMessage = err.Translate(trans)
+		}
+		translatedErr := fmt.Sprintf(messageStyle("Validation Error: %s => %s"), paramMsgStyle(fieldPath), paramMsgStyle(vaErrorMessage))
 		messages = append(messages, translatedErr)
 	}
 

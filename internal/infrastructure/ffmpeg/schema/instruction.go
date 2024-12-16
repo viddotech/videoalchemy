@@ -3,7 +3,7 @@ package schema
 type Instruction struct {
 	Name             string          `validate:"required" yaml:"name"`
 	Inputs           []Input         `validate:"dive" yaml:"inputs"`
-	ProcessStreams   []ProcessStream `validate:"unique=StreamName,dive" yaml:"streams"`
+	ProcessStreams   []ProcessStream `validate:"dive" yaml:"streams"`
 	Outputs          []Output        `validate:"dive" yaml:"outputs"`
 	ComplexFilters   []ComplexFilter `validate:"dive" yaml:"complex_filters"`
 	InputStreams     []InputStream

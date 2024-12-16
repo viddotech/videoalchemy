@@ -19,7 +19,7 @@ tasks:
       - id: output_12
         overwrite: true
         source: 'output.gif'
-    codecs:
+    streams:
       - video_filters:
           - name: fps
             value: 10

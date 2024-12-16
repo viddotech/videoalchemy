@@ -17,10 +17,14 @@ tasks:
         source: 'input.mp4'
       - id: watermark
         source: 'watermark.png'
-    codecs:
-      - video_filters:
+    streams:
+      - stream_from:
+          input_id: input_1
+        video_filters:
           - name: overlay
             value: "10:10"
+        stream_to:
+          output_id: output_1
     outputs:
       - id: output_1
         overwrite: true

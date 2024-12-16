@@ -19,7 +19,7 @@ tasks:
       - id: output_2
         overwrite: true
         source: 'output.mp4'
-    codecs:
+    streams:
       - codec_name:
           video: v4l2
 ```

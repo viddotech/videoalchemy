@@ -19,7 +19,7 @@ tasks:
       - id: output_9
         overwrite: true
         source: 'output.mp4'
-    codecs:
+    streams:
       - video_filters:
           - name: scale
             value: 1080:1920

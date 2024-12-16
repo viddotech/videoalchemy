@@ -12,7 +12,7 @@ generate_path: "./generated"  # Directory of log and command files
 tasks:
   - name: Combining Videos
     command: ffmpeg
-    codecs:
+    streams:
       - concat_files:
           - source: 'input1.mp4'
           - source: 'input2.mp4'

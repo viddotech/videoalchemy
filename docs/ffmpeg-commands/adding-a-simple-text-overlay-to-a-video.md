@@ -15,7 +15,7 @@ tasks:
     inputs:
       - id: input_1
         source: 'input.mp4'
-    codecs:
+    streams:
       - video_filters:
           - name: drawtext
             value: "text='Your Text Here':fontcolor=white:fontsize=24:x=10:y=10"

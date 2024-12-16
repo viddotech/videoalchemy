@@ -18,7 +18,7 @@ generate_path: "./sample/generated"  # The path where generated files will be st
 
 ## Tasks
 
-The `tasks` attribute is a list of tasks to be executed. Each task specifies the command to run, the inputs, outputs, and any codecs or filters to apply.
+The `tasks` attribute is a list of tasks to be executed. Each task specifies the command to run, the inputs, outputs, and any streams or filters to apply.
 
 ### Task Parameters
 
@@ -90,7 +90,7 @@ outputs:
 The `codecs` attribute specifies the codecs and filters to apply.
 
 ```yaml
-codecs:
+streams:
   - input_id: input_1  # Identifier for the input
     output_id: output_1  # Identifier for the output
   - codec_name:

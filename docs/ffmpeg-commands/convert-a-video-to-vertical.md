@@ -19,7 +19,7 @@ tasks:
       - id: output_8
         overwrite: true
         source: 'output.mp4'
-    codecs:
+    streams:
       - video_filters:
           - name: pad
             value: ih*9/16:ih:(ow-iw)/2:0

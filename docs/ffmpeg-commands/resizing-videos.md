@@ -15,7 +15,7 @@ tasks:
   inputs:
     - id: input_video
       source: 'input.mp4'
-      codecs:
+      streams:
     - video_filters:
         - name: scale
           value: "1280:720"

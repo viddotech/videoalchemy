@@ -60,7 +60,7 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
   inputs:
     - id: input_2
       output_id: output_avi  # Reference to the output of a previous task
-  codecs:  # List of codecs to apply
+  streams:  # List of streams to apply
     - codec_name:
         audio: copy  # Copy the audio codec
       video_none: true  # No video codec
@@ -80,7 +80,7 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
   inputs:
     - id: input_3
       source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
-  codecs:
+  streams:
     - video_filters:  # List of video filters to apply
         - name: scale
           value: "720:480:flags=lanczos"
@@ -98,7 +98,7 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
   inputs:
     - id: input_4
       source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
-  codecs:
+  streams:
     - time_part:  # Time range to trim
         start_time: "00:00:10.000"
         end_time: "00:00:20.000"
@@ -113,7 +113,7 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
 ```yaml
 - name: Combining Videos
   command: ffmpeg
-  codecs:
+  streams:
     - concat_files:  # List of files to concatenate
         - source: "./sample/inputs/sample-10s.mp4"
         - source: "./sample/inputs/sample-20s.mp4"
@@ -131,7 +131,7 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
   inputs:
     - id: input_5
       source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'
-  codecs:
+  streams:
     - video_filters:
       - name: fps
         value: 1
@@ -151,7 +151,7 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
   inputs:
     - id: input_6
       output_id: extract_image_%04d
-  codecs:
+  streams:
     - input_framerate: 24
       codec_name:
         video: libx264
@@ -172,7 +172,7 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
   inputs:
     - id: input_7
       source: 'sample/inputs/sample-10s.mp4'
-  codecs:
+  streams:
     - codec_name:
         audio: aac
       constant_bitrate:
