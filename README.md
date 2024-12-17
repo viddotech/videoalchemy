@@ -71,7 +71,12 @@ tasks:
     command: ffmpeg  
     inputs:  
       - id: input_video  
-        source: 'input.mp4'  
+        source: 'input.mp4'
+    streams:
+      - stream_from:
+          input_id: input_video
+        stream_to:
+          output_id: output_avi
     outputs:  
       - id: output_avi  
         source: 'output.avi'  
@@ -86,6 +91,10 @@ tasks:
       - codec_name:
           audio: copy  
         video_none: true
+        stream_from:
+          input_id: output_avi
+        stream_to:
+          output_id: audio_only
     run_after:
       - Convert to AVI
     outputs:  
