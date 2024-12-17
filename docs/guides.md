@@ -46,6 +46,11 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
   inputs:  # List of input files
     - id: input_1  # Identifier for the input
       source: 'sample/inputs/SampleVideo_1280x720_30mb.mp4'  # Path to the input file
+  streams:
+    - stream_from:
+        input_id: input_1
+      stream_to:
+        output_id: output_avi
   outputs:  # List of output files
     - id: output_avi  # Identifier for the output
       overwrite: true  # Whether to overwrite the output file if it exists
@@ -64,6 +69,10 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
     - codec_name:
         audio: copy  # Copy the audio codec
       video_none: true  # No video codec
+      stream_from:
+        input_id: input_2
+      stream_to:
+        output_id: output_only_audio
   run_after:  # List of tasks to run before this task
     - Basic Video Conversion
   outputs:
@@ -84,6 +93,10 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
     - video_filters:  # List of video filters to apply
         - name: scale
           value: "720:480:flags=lanczos"
+      stream_from:
+        input_id: input_3
+      stream_to:
+        output_id: resized_output.mp4
   outputs:
     - id: resized_output.mp4
       overwrite: true
@@ -102,25 +115,14 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
     - time_part:  # Time range to trim
         start_time: "00:00:10.000"
         end_time: "00:00:20.000"
+      stream_from:
+        input_id: input_4
+      stream_to:
+        output_id: trim_video
   outputs:
     - id: trim_video
       overwrite: true
       source: 'sample/outputs/trim.mp4'
-```
-
-##### Combining Videos
-
-```yaml
-- name: Combining Videos
-  command: ffmpeg
-  streams:
-    - concat_files:  # List of files to concatenate
-        - source: "./sample/inputs/sample-10s.mp4"
-        - source: "./sample/inputs/sample-20s.mp4"
-  outputs:
-    - id: concat_video
-      overwrite: true
-      source: 'sample/outputs/concat.mp4'
 ```
 
 ##### Extract Images from Video
@@ -135,6 +137,10 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
     - video_filters:
       - name: fps
         value: 1
+      stream_from: 
+        input_id: input_5
+      stream_to:
+        output_id: extract_image_%04d
   outputs:
     - id: extract_image_%04d
       start_number: 0
@@ -156,6 +162,10 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
       codec_name:
         video: libx264
       pixel_format: yuv420p
+      stream_from:
+        input_id: input_6
+      stream_to:
+        output_id: video_from_images
   run_after:
     - Extract images from video
   outputs:
@@ -167,52 +177,80 @@ The `tasks` attribute is a list of tasks to be executed. Each task specifies the
 ##### Convert Video to Multi-Bitrate HLS Format
 
 ```yaml
-- name: Convert video to multi-bitrate HLS format
-  command: ffmpeg
-  inputs:
-    - id: input_7
-      source: 'sample/inputs/sample-10s.mp4'
-  streams:
-    - codec_name:
-        audio: aac
-      constant_bitrate:
-        audio: 128k
-      audio_sampling_rate: 48000
-    - video_filters:
-        - name: scale
-          value: "-2:720"
-      constant_bitrate:
-        video: 3000k
-      max_rate: 3200k
-      buffer_size: 6000k
-      map_input: true
-    - video_filters:
-        - name: scale
-          value: "-2:480"
-      constant_bitrate:
-        video: 1500k
-      max_rate: 1600k
-      buffer_size: 3000k
-      output_id: hls_video_480p
-      map_input: true
-    - video_filters:
-        - name: scale
-          value: "-2:360"
-      constant_bitrate:
-        video: 800k
-      max_rate: 900k
-      buffer_size: 1800k
-      output_id: hls_video_360p
-      map_input: true
-    - hls:
-        time: 10
-        segment_filename: "sample/outputs/hls/%v/segment_%03d.ts"
-        master_playlist_name: "master.m3u8"
-        playlist_type: "vod"
-      variant_stream_map: "v:0,a:0 v:1,a:1 v:2,a:2"
-  outputs:
-    - id: playlist
-      overwrite: true
-      format: hls
-      source: 'sample/outputs/hls/%v/playlist.m3u8'
+  - name: Convert video to multi-bitrate HLS format
+    command: ffmpeg
+    inputs:
+       - id: input_7
+         source: 'sample/inputs/sample-10s.mp4'
+    streams:
+       - stream_from:
+            input_id: input_7
+            stream_type: audio
+         stream_name: "my-audio"
+         codec_name:
+            audio: aac
+         constant_bitrate:
+            audio: 128k
+         audio_sampling_rate: 48000
+         stream_to:
+            output_id: playlist
+            groups: [playlist_1, playlist_2, playlist_3]
+       - stream_from:
+            input_id: input_7
+            stream_type: video
+         stream_name: video_1
+         inject_streams: ["my-audio"]
+         video_filters:
+            - name: scale
+              value: "-2:720"
+         constant_bitrate:
+            video: 3000k
+         max_rate:
+            video: 3200k
+         buffer_size: 6000k
+         stream_to:
+            output_id: playlist
+            groups: playlist_1
+       - stream_from:
+            input_id: input_7
+            stream_type: video
+         stream_name: video_2
+         inject_streams: ["my-audio"]
+         video_filters:
+            - name: scale
+              value: "-2:480"
+         constant_bitrate:
+            video: 1500k
+         max_rate:
+            video: 1600k
+         buffer_size: 3000k
+         stream_to:
+            output_id: playlist
+            groups: playlist_2
+       - stream_from:
+            input_id: input_7
+            stream_type: video
+         stream_name: video_3
+         inject_streams: ["my-audio"]
+         video_filters:
+            - name: scale
+              value: "-2:360"
+         constant_bitrate:
+            video: 800k
+         max_rate:
+            video: 900k
+         buffer_size: 1800k
+         stream_to:
+            output_id: playlist
+            groups: playlist_3
+    outputs:
+       - id: playlist
+         overwrite: true
+         format: hls
+         source: 'sample/outputs/1.0/hls/%v/playlist.m3u8'
+         hls:
+            time: 10
+            segment_filename: "sample/outputs/1.0/hls/%v/segment_%03d.ts"
+            master_playlist_name: "master.m3u8"
+            playlist_type: "vod"
 ```

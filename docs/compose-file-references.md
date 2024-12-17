@@ -85,9 +85,9 @@ outputs:
 - `length`: Length of the output file sequence. Any non-negative integer.
 
 
-#### Codecs
+#### Streams
 
-The `codecs` attribute specifies the codecs and filters to apply.
+The `streams` attribute specifies the codecs and filters to apply.
 
 ```yaml
 streams:
