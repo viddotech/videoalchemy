@@ -72,6 +72,22 @@ outputs:
     format: mp4  # Format of the output file
     start_number: 0  # Starting number for the output file
     length: 10  # Length of the output file sequence
+    file_size: 20000 # Limits the file size to 10 megabytes.
+    hls:
+      time: 10  # Segment duration for HLS
+      list_size: 5  # Number of segments in the playlist
+      segment_filename: segment_%03d.ts  # Segment filename pattern
+      playlist_type: vod  # Playlist type
+      segment_type: mpegts  # Segment type
+      flags: [delete_segments]  # HLS flags
+      master_playlist_name: master.m3u8  # Master playlist name
+      segment_list: segment_list.m3u8  # Segment list file
+      segment_list_size: 5  # Size of the segment list
+      max_entries: 10  # Maximum number of entries
+      allow_cache: true  # Allow caching
+      key_info_file: key_info.txt  # Key info file
+      key_url: http://example.com/key  # Key URL
+
 ```
 
 - `id`: Identifier for the output. Any non-empty string.
@@ -83,6 +99,21 @@ outputs:
  
 - `start_number`: Starting number for the output file. Any non-negative integer.
 - `length`: Length of the output file sequence. Any non-negative integer.
+- `file_size`: it is using to stop writing data to the output file once the file size reaches the specified limit. Corresponds to the `-fs` parameter in FFmpeg
+- `hls`: HLS options.
+  - `time`: Segment duration for HLS. Corresponds to the `-hls_time` parameter in FFmpeg. Any non-negative float.
+  - `list_size`: Number of segments in the playlist. Corresponds to the `-hls_list_size` parameter in FFmpeg. Any non-negative integer.
+  - `segment_filename`: Segment filename pattern. Corresponds to the `-hls_segment_filename` parameter in FFmpeg. Any valid file name.
+  - `playlist_type`: Playlist type. Corresponds to the `-hls_playlist_type` parameter in FFmpeg. Available values: `event`, `vod`.
+  - `segment_type`: Segment type. Corresponds to the `-hls_segment_type` parameter in FFmpeg. Any valid segment type.
+  - `flags`: HLS flags. Corresponds to the `-hls_flags` parameter in FFmpeg. Any valid flag.
+  - `master_playlist_name`: Master playlist name. Corresponds to the `-master_pl_name` parameter in FFmpeg. Any valid file name.
+  - `segment_list`: Segment list file. Corresponds to the `-hls_segment_list` parameter in FFmpeg. Any valid file path.
+  - `segment_list_size`: Size of the segment list. Corresponds to the `-hls_segment_list_size` parameter in FFmpeg. Any non-negative integer.
+  - `max_entries`: Maximum number of entries. Corresponds to the `-hls_segment_list_size` parameter in FFmpeg. Any non-negative integer.
+  - `allow_cache`: Allow caching. Corresponds to the `-hls_allow_cache` parameter in FFmpeg. Values are `true` or `false`.
+  - `key_info_file`: Key info file. Corresponds to the `-hls_key_info_file` parameter in FFmpeg. Any valid file path.
+  - `key_url`: Key URL. Corresponds to the `-hls_key_url` parameter in FFmpeg. Any valid URL.
 
 
 #### Streams
@@ -91,9 +122,16 @@ The `streams` attribute specifies the codecs and filters to apply.
 
 ```yaml
 streams:
-  - input_id: input_1  # Identifier for the input
-    output_id: output_1  # Identifier for the output
-  - codec_name:
+  - stream_from:
+      input_id: input_1  # Identifier for the input
+      stream_type: video # extract specific media stream like video, audio, subtitle, etc
+      stream_type_index: 0 # extract specific index of media.
+      filter_output_name: my-complex-filter # reference to complex filter stream
+      stream_name: non-output-stream-name # reference to stream name
+    stream_to:
+      output_id: output_1  # Identifier for the output
+      stream_type_index: 1 # extract specific index of media.
+    codec_name:
       audio: aac  # Audio codec
       video: libx264  # Video codec
     stream_loop: 1  # Number of times to loop the stream
@@ -146,20 +184,6 @@ streams:
     framerate: 30  # Output frame rate
     gop_size: 60  # Group of pictures size
     audio_sampling_rate: 44100  # Audio sampling rate
-    hls:
-      time: 10  # Segment duration for HLS
-      list_size: 5  # Number of segments in the playlist
-      segment_filename: segment_%03d.ts  # Segment filename pattern
-      playlist_type: vod  # Playlist type
-      segment_type: mpegts  # Segment type
-      flags: [delete_segments]  # HLS flags
-      master_playlist_name: master.m3u8  # Master playlist name
-      segment_list: segment_list.m3u8  # Segment list file
-      segment_list_size: 5  # Size of the segment list
-      max_entries: 10  # Maximum number of entries
-      allow_cache: true  # Allow caching
-      key_info_file: key_info.txt  # Key info file
-      key_url: http://example.com/key  # Key URL
     channels: 2  # Number of audio channels
     channel_layout: stereo  # Audio channel layout
     variant_stream_map: v:0,a:0  # Variant stream map
@@ -221,20 +245,6 @@ streams:
 - `framerate`: Output frame rate. Corresponds to the `-r` parameter in FFmpeg. Any non-negative integer.
 - `gop_size`: Group of pictures size. Corresponds to the `-g` parameter in FFmpeg. Any integer greater than or equal to -1.
 - `audio_sampling_rate`: Audio sampling rate. Corresponds to the `-ar` parameter in FFmpeg. Any non-negative integer.
-- `hls`: HLS options.
-  - `time`: Segment duration for HLS. Corresponds to the `-hls_time` parameter in FFmpeg. Any non-negative float.
-  - `list_size`: Number of segments in the playlist. Corresponds to the `-hls_list_size` parameter in FFmpeg. Any non-negative integer.
-  - `segment_filename`: Segment filename pattern. Corresponds to the `-hls_segment_filename` parameter in FFmpeg. Any valid file name.
-  - `playlist_type`: Playlist type. Corresponds to the `-hls_playlist_type` parameter in FFmpeg. Available values: `event`, `vod`.
-  - `segment_type`: Segment type. Corresponds to the `-hls_segment_type` parameter in FFmpeg. Any valid segment type.
-  - `flags`: HLS flags. Corresponds to the `-hls_flags` parameter in FFmpeg. Any valid flag.
-  - `master_playlist_name`: Master playlist name. Corresponds to the `-master_pl_name` parameter in FFmpeg. Any valid file name.
-  - `segment_list`: Segment list file. Corresponds to the `-hls_segment_list` parameter in FFmpeg. Any valid file path.
-  - `segment_list_size`: Size of the segment list. Corresponds to the `-hls_segment_list_size` parameter in FFmpeg. Any non-negative integer.
-  - `max_entries`: Maximum number of entries. Corresponds to the `-hls_segment_list_size` parameter in FFmpeg. Any non-negative integer.
-  - `allow_cache`: Allow caching. Corresponds to the `-hls_allow_cache` parameter in FFmpeg. Values are `true` or `false`.
-  - `key_info_file`: Key info file. Corresponds to the `-hls_key_info_file` parameter in FFmpeg. Any valid file path.
-  - `key_url`: Key URL. Corresponds to the `-hls_key_url` parameter in FFmpeg. Any valid URL.
 - `channels`: Number of audio channels. Corresponds to the `-ac` parameter in FFmpeg. Any non-negative integer.
 - `channel_layout`: Audio channel layout. Corresponds to the `-channel_layout` parameter in FFmpeg. Available values: `mono`, `stereo`, `2.1`, `3.0`, `3.1`, `quad`, `4.0`, `4.1`, `5.0`, `5.1`, `6.1`, `7.0`, `7.1`, `hexagonal`, `octagonal`, `surround`, `quadraphonic`, `5.1(side)`, `7.1(wide)`, `ambisonic_first_order`, `ambisonic_second_order`, `ambisonic_third_order`.
 - `variant_stream_map`: Variant stream map. Corresponds to the `-var_stream_map` parameter in FFmpeg. Any valid stream map.
