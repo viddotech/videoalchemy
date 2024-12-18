@@ -190,8 +190,18 @@ streams:
     map_input: true  # Map input streams
 ```
 
-- `input_id`: Identifier for the input. not required. using for map codec to one of inputs.
-- `output_id`: Identifier for the output. not required. using for map codec to one of outputs.
+- `stream_from`: reference to find sources
+
+  - `input_id`: Identifier for the input. not required. using for map codec to one of inputs.
+  - `stream_type`: select specific stream type from input.
+  - `stream_type_index`: select index per steram type. `example: if you have multiple audio stream in a file as input. set stream_type_index to select which audio as a stream`.
+  - `filter_output_name`: select complex filter stream as source of current stream.
+  - `stream_name`: select output of other streams as source of current stream.
+
+- `stream_to`: reference to find outputs
+  
+  - `output_id`: Identifier for the output. not required. using for map codec to one of outputs.
+  - `stream_type_index`: select index per steram type.
 - `codec_name`: Specifies the codec to use. Corresponds to the `-c:v` and `-c:a` parameters in FFmpeg.
   - `audio`: Corresponds to the `-c:a` parameter in FFmpeg. Available values: `aac`, `ac3`, `mp3`, `opus`, `vorbis`, `flac`, `alac`, `pcm_s16le`, `pcm_s24le`, `pcm_s32le`, `pcm_f32le`, `pcm_f64le`, `pcm_mulaw`, `pcm_alaw`, `pcm_s8`, `pcm_u8`, `libmp3lame`, `libopus`, `libvorbis`, `copy`.
   - `video`: Corresponds to the `-c:v` parameter in FFmpeg. Available values: `libx264`, `libx265`, `mpeg2video`, `libvpx-vp9`, `gif`, `libvpx`, `libaom-av1`, `mpeg1video`, `mpeg4`, `h263`, `libtheora`, `prores`, `dnxhd`, `libxvid`, `msmpeg4v2`, `msmpeg4`, `wmv1`, `wmv2`, `vc1`, `flv`, `rawvideo`, `png`, `bmp`, `jpeg2000`, `mjpeg`, `huffyuv`, `liblags`, `copy`.
