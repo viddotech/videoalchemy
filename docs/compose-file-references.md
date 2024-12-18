@@ -260,6 +260,22 @@ streams:
 - `variant_stream_map`: Variant stream map. Corresponds to the `-var_stream_map` parameter in FFmpeg. Any valid stream map.
 - `map_input`: Map input streams. Corresponds to the `-map` parameter in FFmpeg. Values are `true` or `false`.
 
+#### Complex Filters
+
+the `complex_filters` attribute for set chain of complex filters.
+
+```yaml
+  complex_filters:
+    - stream_from:
+        input_id: input_1
+        stream_type: video
+      outputs_name: [my-scale]
+      filters:
+        - name: scale
+          value: 1280:720
+```
+
+
 #### Run After
 
 The `run_after` attribute specifies a list of tasks to run before this task.
