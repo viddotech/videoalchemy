@@ -817,8 +817,25 @@
 </span><span id="__span-6-67"><a id="__codelineno-6-67" name="__codelineno-6-67" href="#__codelineno-6-67"></a><span class="w">    </span><span class="nt">map_input</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Map input streams</span>
 </span></code></pre></div>
 <ul>
-<li><code>input_id</code>: Identifier for the input. not required. using for map codec to one of inputs.</li>
-<li><code>output_id</code>: Identifier for the output. not required. using for map codec to one of outputs.</li>
+<li>
+<p><code>stream_from</code>: reference to find sources</p>
+</li>
+<li>
+<p><code>input_id</code>: Identifier for the input. not required. using for map codec to one of inputs.</p>
+</li>
+<li><code>stream_type</code>: select specific stream type from input.</li>
+<li><code>stream_type_index</code>: select index per steram type. <code>example: if you have multiple audio stream in a file as input. set stream_type_index to select which audio as a stream</code>.</li>
+<li><code>filter_output_name</code>: select complex filter stream as source of current stream.</li>
+<li>
+<p><code>stream_name</code>: select output of other streams as source of current stream.</p>
+</li>
+<li>
+<p><code>stream_to</code>: reference to find outputs</p>
+</li>
+<li>
+<p><code>output_id</code>: Identifier for the output. not required. using for map codec to one of outputs.</p>
+</li>
+<li><code>stream_type_index</code>: select index per steram type.</li>
 <li><code>codec_name</code>: Specifies the codec to use. Corresponds to the <code>-c:v</code> and <code>-c:a</code> parameters in FFmpeg.</li>
 <li><code>audio</code>: Corresponds to the <code>-c:a</code> parameter in FFmpeg. Available values: <code>aac</code>, <code>ac3</code>, <code>mp3</code>, <code>opus</code>, <code>vorbis</code>, <code>flac</code>, <code>alac</code>, <code>pcm_s16le</code>, <code>pcm_s24le</code>, <code>pcm_s32le</code>, <code>pcm_f32le</code>, <code>pcm_f64le</code>, <code>pcm_mulaw</code>, <code>pcm_alaw</code>, <code>pcm_s8</code>, <code>pcm_u8</code>, <code>libmp3lame</code>, <code>libopus</code>, <code>libvorbis</code>, <code>copy</code>.</li>
 <li><code>video</code>: Corresponds to the <code>-c:v</code> parameter in FFmpeg. Available values: <code>libx264</code>, <code>libx265</code>, <code>mpeg2video</code>, <code>libvpx-vp9</code>, <code>gif</code>, <code>libvpx</code>, <code>libaom-av1</code>, <code>mpeg1video</code>, <code>mpeg4</code>, <code>h263</code>, <code>libtheora</code>, <code>prores</code>, <code>dnxhd</code>, <code>libxvid</code>, <code>msmpeg4v2</code>, <code>msmpeg4</code>, <code>wmv1</code>, <code>wmv2</code>, <code>vc1</code>, <code>flv</code>, <code>rawvideo</code>, <code>png</code>, <code>bmp</code>, <code>jpeg2000</code>, <code>mjpeg</code>, <code>huffyuv</code>, <code>liblags</code>, <code>copy</code>.</li>
@@ -902,7 +919,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-12-17T16:46:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-12-17</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-12-18T02:21:23+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-12-18</span>
   </span>
 
     
