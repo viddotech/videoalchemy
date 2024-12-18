@@ -152,7 +152,7 @@ We are continuously working to enhance VideoAlchemy. Here are some exciting feat
   - [ ] FFMPEG parameters: Mpeg Dash
   - [ ] FFMPEG Parameters: Hardware Acceleration(GPU)
   - [ ] REST API: Tasks Management
-  - [ ] Rest API: Monitoring & Logger
+  - [ ] REST API: Monitoring & Logger
   - [ ] AI Integration: Inference API of Hugging Face
   - [ ] AI Integration: AI & Media Tasks
   - [ ] AI Integration: AI Filters
