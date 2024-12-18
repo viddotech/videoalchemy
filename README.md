@@ -149,6 +149,7 @@ We are continuously working to enhance VideoAlchemy. Here are some exciting feat
   - [x] FFMPEG Parameters: Complex Filters
   - [x] FFMPEG Parameters: HLS
   - [x] FFMPEG Parameters: Codecs & VOD & Live & Streaming
+  - [x] VideoAlchemy Validation: Attributes Validation
   - [ ] FFMPEG parameters: Mpeg Dash
   - [ ] FFMPEG Parameters: Hardware Acceleration(GPU)
   - [ ] REST API: Tasks Management
