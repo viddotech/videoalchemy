@@ -26,6 +26,8 @@ Whether you're processing a single video or executing a sequence of commands, Vi
 - [Blog Posts](#blog-posts)
 - [Contributing](#contributing)
 - [Upcoming Enhancements and Support](#upcoming-enhancements-and-support)
+- [Features List](#Features-List)
+- [Sponsors](#Sponsors)
 - [License](#license)
 
 
@@ -140,7 +142,26 @@ We are continuously working to enhance VideoAlchemy. Here are some exciting feat
 
 6. **Improved Validation**: Enhance the built-in validation mechanisms to cover more complex scenarios and edge cases, ensuring that all FFmpeg commands are correctly formed and executed without errors.
 
----
+## Features List
+
+  - [x] FFMPEG Parameters: Input & Output
+  - [x] FFMPEG Parameters: Simple Filters
+  - [x] FFMPEG Parameters: Complex Filters
+  - [x] FFMPEG Parameters: HLS
+  - [x] FFMPEG Parameters: Codecs & VOD & Live & Streaming
+  - [ ] FFMPEG parameters: Mpeg Dash
+  - [ ] FFMPEG Parameters: Hardware Acceleration(GPU)
+  - [ ] REST API: Tasks Management
+  - [ ] Rest API: Monitoring & Logger
+  - [ ] AI Integration: Inference API of Hugging Face
+  - [ ] AI Integration: AI & Media Tasks
+  - [ ] AI Integration: AI Filters
+  - [ ] Cloud Storage Integration: Microsoft Azure
+  - [ ] Cloud Storage Integration: AWS S3/Minio
+  - [ ] Cloud Storage Integration: Google Cloud
+
+
+## Sponsors
 
 Your support keeps this project growing. Consider sponsoring to help us continue developing VideoAlchemy.
 
