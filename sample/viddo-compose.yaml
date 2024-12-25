@@ -156,7 +156,6 @@ tasks:
         audio_sampling_rate: 48000
         stream_to:
           output_id: playlist
-          groups: [playlist_1, playlist_2, playlist_3]
       - stream_from:
           input_id: input_7
           stream_type: video
@@ -172,7 +171,6 @@ tasks:
         buffer_size: 6000k
         stream_to:
           output_id: playlist
-          groups: playlist_1
       - stream_from:
           input_id: input_7
           stream_type: video
@@ -188,7 +186,6 @@ tasks:
         buffer_size: 3000k
         stream_to:
           output_id: playlist
-          groups: playlist_2
       - stream_from:
           input_id: input_7
           stream_type: video
@@ -204,7 +201,6 @@ tasks:
         buffer_size: 1800k
         stream_to:
           output_id: playlist
-          groups: playlist_3
     outputs:
       - id: playlist
         overwrite: true

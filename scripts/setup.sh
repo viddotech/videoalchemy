@@ -4,7 +4,7 @@
 BASE_URL="https://github.com/viddotech/videoalchemy/releases/download"
 
 # Default version
-DEFAULT_VERSION=""
+DEFAULT_VERSION="v0.0.1-alpha" # Replace with your default version if needed
 
 # Check if a version was provided as a parameter
 if [ "$#" -eq 1 ]; then
@@ -13,12 +13,23 @@ else
   VERSION="$DEFAULT_VERSION"
 fi
 
-# Construct the full download URL
-DOWNLOAD_URL="${BASE_URL}/${VERSION}/videoalchemy"
+# Determine OS and architecture
+OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+ARCH=$(uname -m)
 
+# Map architecture to expected naming
+case "$ARCH" in
+  x86_64) ARCH="amd64" ;;
+  aarch64) ARCH="arm64" ;;
+  armv7l) ARCH="armv7" ;;
+  *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
+esac
+
+# Construct the full download URL for the specific binary
+DOWNLOAD_URL="${BASE_URL}/${VERSION}/videoalchemy-${OS}-${ARCH}"
 
 # Download and install VideoAlchemy
-echo "Downloading VideoAlchemy from $DOWNLOAD_URL..."
+echo "Downloading VideoAlchemy for ${OS}-${ARCH} from $DOWNLOAD_URL..."
 curl -L -o videoalchemy "$DOWNLOAD_URL"
 if [ $? -ne 0 ]; then
   echo "Failed to download VideoAlchemy. Exiting."
