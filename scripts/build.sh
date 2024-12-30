@@ -1,1 +1,1 @@
-go build -ldflags="-X 'main.version=1.0-RC1' -X 'main.date=$(date -u +%Y-%m-%d)'" -o videoalchemy ./cmd/compose
+go build -ldflags="-X 'main.version=1.0.0' -X 'main.date=$(date -u +%Y-%m-%d)'" -o videoalchemy ./cmd/compose

@@ -137,3 +137,4 @@ sample/generated*
 sample/outputs
 videoalchemy
 docs/requirements.txt
+videoalchemy-*-*
