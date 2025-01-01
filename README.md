@@ -3,7 +3,6 @@
 
 ![Overview](videoalchemy-overview.png)
 
-**VideoAlchemy’s first stable version is coming on `January 1st, 2025`! Don’t miss it—check our GitHub for the release!**
 
 Welcome to **VideoAlchemy**, an advanced toolkit that offers a more readable and structured way to handle video processing tasks compared to traditional FFmpeg commands. VideoAlchemy enables users to define video processing workflows using a simple YAML-based configuration, enriched with built-in validation to minimize errors and streamline command execution.
 
