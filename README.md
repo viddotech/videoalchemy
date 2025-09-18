@@ -51,7 +51,7 @@ videoalchemy currently supports Linux and macOS. Windows support is coming soon.
 ### Installation
 
 ```bash
-version=$(curl -s https://api.github.com/repos/viddotech/videoalchemy/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")') && curl -o setup.sh "https://raw.githubusercontent.com/viddotech/videoalchemy/main/scripts/setup.sh" && chmod +x setup.sh && sudo ./setup.sh "$version" && rm -rf setup.sh
+version=$(curl -s https://api.github.com/repos/viddotech/videoalchemy/releases/latest | sed -n 's/.*"tag_name": "\(.*\)".*/\1/p') && curl -sL https://raw.githubusercontent.com/viddotech/videoalchemy/main/scripts/setup.sh | sudo bash -s -- "$version"
 ```
 
 ### Run VideoAlchemy

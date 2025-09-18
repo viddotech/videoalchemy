@@ -32,7 +32,7 @@ To install VideoAlchemy on your system, follow the steps below based on your pla
 2. Run the following command to install VideoAlchemy:
 
 ```bash
-version=$(curl -s https://api.github.com/repos/viddotech/videoalchemy/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")') && curl -o setup.sh "https://raw.githubusercontent.com/viddotech/videoalchemy/main/scripts/setup.sh" && chmod +x setup.sh && sudo ./setup.sh "$version" && rm -rf setup.sh
+version=$(curl -s https://api.github.com/repos/viddotech/videoalchemy/releases/latest | sed -n 's/.*"tag_name": "\(.*\)".*/\1/p') && curl -sL https://raw.githubusercontent.com/viddotech/videoalchemy/main/scripts/setup.sh | sudo bash -s -- "$version"
 ```
 
 This script will download and install the latest version of VideoAlchemy.
